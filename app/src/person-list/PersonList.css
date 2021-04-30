@@ -1,0 +1,30 @@
+@media (min-width: 0px) {
+    .person-container {
+        width: 90%;
+        height: 90%;
+    }
+}
+
+@media (min-width: 800px) {
+    .person-container {
+        width: 80%;
+    }
+}
+
+@media (min-width: 1600px) {
+    .person-container {
+        width: 57%;
+    }
+}
+
+.person-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.person-container::after {
+    height: 0;
+    width: 30%;
+    content: "";
+}

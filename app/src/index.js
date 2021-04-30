@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import {Episode} from './episode/Episode';
-import {Person} from './person/Person';
+import {EpisodeList} from "./episode-list/EpisodeList";
+import {PersonList} from "./person-list/PersonList";
 import reportWebVitals from './reportWebVitals';
 
 // episodes
@@ -43,11 +43,9 @@ let episodes = episodesFromBE.map(({image, number, title, description}) => ({
 
 ReactDOM.render(
   <React.StrictMode>
-    <div>
-      {episodes.map((episode) => <Episode {...episode} key={episode.episodeName}></Episode>)}
-    </div>
+    <EpisodeList episodes={episodes}></EpisodeList>
   </React.StrictMode>,
-  document.querySelector(".episode-container")
+  document.querySelector('[data-container="episode-container"]')
 );
 
 let teamFromBE = [
@@ -86,11 +84,9 @@ let team = teamFromBE.map(({image, name, role}) => ({
 
 ReactDOM.render(
   <React.StrictMode>
-    <div>
-      {team.map((person) => <Person {...person} key={person.personName}></Person>)}
-    </div>
+    <PersonList team={team}></PersonList>
   </React.StrictMode>,
-  document.querySelector(".person-container")
+  document.querySelector('[data-container="team"]')
 );
 
 // If you want to start measuring performance in your app, pass a function

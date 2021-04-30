@@ -1,4 +1,5 @@
 import React from 'react';
+import {Episode} from "../episode/Episode";
 import TinySlider from "tiny-slider-react";
 
 const settings = {
@@ -8,17 +9,11 @@ const settings = {
 };
 
 export const EpisodeList = ({episodes}) => (
+  <div className="episode-container">
     <TinySlider settings={settings}>
-    {imgs.map((el, index) => (
-      <div key={index} style={{ position: "relative" }}>
-        <img
-          className={`tns-lazy-img`}
-          src={loadingImage}
-          data-src={el}
-          alt=""
-          style={imgStyles}
-        />
-      </div>
-    ))}
+      {episodes.map((episode, index) => (
+          <Episode {...episode} key={index}></Episode>
+      ))}
     </TinySlider>
+  </div>
 )

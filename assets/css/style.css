@@ -266,74 +266,21 @@ header a {
 /* team */
 
 @media (min-width: 0px) {
-    .person-container {
-        width: 90%;
-        height: 90%;
-    }
-    .person-item {
-        width: 100%;
-    }
     .section-description {
         width: 90%;
     }
 }
 
 @media (min-width: 800px) {
-    .person-container {
-        width: 80%;
-    }
-    .person-item {
-        width: calc(50% - 20px);
-    }
     .section-description {
         width: 80%;
     }
 }
 
 @media (min-width: 1600px) {
-    .person-container {
-        width: 57%;
-    }
-    .person-item {
-        width: calc(100% / 3 - 40px);
-    }
     .section-description {
         width: 57%;
     }
-}
-
-.person-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-
-.person-container::after {
-    height: 0;
-    width: 30%;
-    content: "";
-}
-
-.person-item {
-    background-color: #fff;
-    height: 25%;
-    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
-    border-radius: 45px;
-    display: flex;
-    margin: 0 0 50px 0;
-}
-
-.person-image {
-    width: 40%;
-    height: 40%;
-    border-radius:inherit;
-}
-
-.person-description {
-    display: flex;
-    flex-direction: column;
-    padding: 15px;
-    justify-content: center;
 }
 
 /* contact form */

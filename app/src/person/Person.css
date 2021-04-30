@@ -1,0 +1,39 @@
+@media (min-width: 0px) {
+    .person-item {
+        width: 100%;
+    }
+}
+
+@media (min-width: 800px) {
+    .person-item {
+        width: calc(50% - 20px);
+    }
+}
+
+@media (min-width: 1600px) {
+    .person-item {
+        width: calc(100% / 3 - 40px);
+    }
+}
+
+.person-item {
+    background-color: #fff;
+    height: 25%;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+    border-radius: 45px;
+    display: flex;
+    margin: 0 0 50px 0;
+}
+
+.person-image {
+    width: 40%;
+    height: 40%;
+    border-radius:inherit;
+}
+
+.person-description {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    justify-content: center;
+}
