@@ -1,13 +1,13 @@
 import React from "react";
 import "./Person.css";
 
-export const Person = ({ imageSrc, personName, personRole }) => {
+export const Person = ({ image, name, role }) => {
   return (
     <div className="person-item">
-      <img className="person-image" src={imageSrc} />
+      <img className="person-image" src={image} />
       <div className="person-description">
-        <h4>{personName}</h4>
-        <p>{personRole}</p>
+        <h4>{name}</h4>
+        <p>{role}</p>
       </div>
     </div>
   );

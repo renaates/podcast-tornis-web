@@ -1,10 +1,11 @@
 import React from "react";
 import { Episode } from "../episode/Episode";
 import TinySlider from "tiny-slider-react";
+import "./EpisodeList.css";
 
 const settings = {
   lazyload: true,
-  nav: false,
+  nav: true,
   mouseDrag: true,
 };
 

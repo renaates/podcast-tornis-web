@@ -1,22 +1,23 @@
 @media (min-width: 0px) {
-  .episode-container {
+  .news-container {
     width: 90%;
   }
 }
 
 @media (min-width: 800px) {
-  .episode-container {
+  .news-container {
     width: 80%;
   }
 }
 
 @media (min-width: 1600px) {
-  .episode-container {
+  .news-container {
     width: 57%;
   }
 }
 
-.episode-container {
+.news-container {
+  height: 100vh;
   left: 0;
   right: 0;
   margin: 0 auto;

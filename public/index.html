@@ -37,7 +37,7 @@
     <title>Podkāsts Tornis</title>
   </head>
   <body>
-<section class="container" id="landing">
+    {% comment %} <section class="container" id="landing">
         <header class="not-fixed">
             <a href="#news" class="nav-element">JAUNUMI</a>
             <a href="#episodes" class="nav-element">EPIZODES</a>
@@ -54,10 +54,10 @@
             <h4>1. RUBRIKAS NOSAUKUMS: Renāte izmēģina embed kodus</h4>
             <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-        </div>
+            </p> {% endcomment %}
+        {% comment %} </div>
 
-    </section>
+    </section> }
 
     <section class="container" id="news">
         <div class="section-title">
@@ -73,9 +73,7 @@
         <div class="section-title">
             <h1><span class="line">|</span> epizodes</h1>
         </div>
-        <div class="episode-container-1">
-            <div data-container="episode-container"></div>
-        </div>
+        <div data-container="epizodes"></div>
     </section>
 
     <section class="container" id="team">
@@ -85,7 +83,7 @@
         <div class="section-description">
             <p>Šeit apskatāmi cilvēki, kas šobrīd aktīvi iesaistās podkāstu izveides procesā un ir pastāvīgi <i>Torņa</i> komandas biedri, kā arī tie, kuri ir piedalījušies projekta izstrādē un pilnveidošanā.</p>
         </div>
-        <div data-container="team"></div>
+        <div data-container="komanda"></div>
     </section>
 
     <section class="container" id="bazars">
@@ -158,5 +156,5 @@
             <p>© 2021 Talsu Valsts ģimnāzija | Renāte Spirga</p>
         </div>
     </div>
-  </body>
+  </body> {% endcomment %}
 </html>
