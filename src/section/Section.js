@@ -1,7 +1,7 @@
 import React from "react";
 import "./Section.css";
 
-export const Section = ({ name, description }) => {
+export const Section = ({ name, description, children }) => {
   return (
     <section className="container">
       <div className="section-title">
@@ -13,7 +13,7 @@ export const Section = ({ name, description }) => {
       <div className="section-description">
         <p>{description}</p>
       </div>
-      <div data-container={name}></div>
+      <div>{children}</div>
     </section>
   );
 };
