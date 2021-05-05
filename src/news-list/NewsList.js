@@ -1,20 +1,22 @@
 import React from "react";
 import { News } from "../news/News";
-import TinySlider from "tiny-slider-react";
+import Slider from "react-slick";
 import "./NewsList.css";
 
-const settings = {
-  lazyload: true,
-  nav: true,
-  mouseDrag: true,
+export const settings = {
+  dots: false,
+  infinite: false,
+  speed: 500,
+  slidesToShow: 1,
+  slidesToScroll: 1,
 };
 
 export const NewsList = ({ news }) => (
   <div className="news-container">
-    <TinySlider settings={settings}>
+    <Slider {...settings} className="slider">
       {news.map((article, index) => (
         <News {...article} key={index}></News>
       ))}
-    </TinySlider>
+    </Slider>
   </div>
 );

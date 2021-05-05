@@ -6,9 +6,11 @@ import { EpisodeList } from "./episode-list/EpisodeList";
 import { PersonList } from "./person-list/PersonList";
 import { NewsList } from "./news-list/NewsList";
 import { NewestEpisodeList } from "./newest-episode/NewestEpisode-1";
+import { Form } from "./form/Form";
 import reportWebVitals from "./reportWebVitals";
 
 // sections
+
 let sections = [
   {
     name: "jaunākā epizode",
@@ -26,7 +28,9 @@ let sections = [
   },
   {
     name: "bazars",
-    description: "Esi Talsu Valsts ģimnāzijas skolēns",
+    description:
+      'Esi Talsu Valsts ģimnāzijas skolēns un vēlies piedalīties podkāsta "Tornis" rubrikā "Bazars"? Izlasi noteikumus, aizpildi anketu un gaidi atbildi no podkāsta komandas! Vairāk par rubriku "Bazars" vari lasīt šeit.',
+    //       'Esi Talsu Valsts ģimnāzijas skolēns un vēlies piedalīties podkāsta "Tornis" rubrikā "Bazars"? Izlasi' <span class="rules underline">'noteikumus'</span>', aizpildi anketu un gaidi atbildi no podkāsta komandas! Vairāk par rubriku "Bazars" vari lasīt <span class="about-bazars underline">šeit</span>.</p>',
   },
 ];
 
@@ -34,8 +38,10 @@ ReactDOM.render(
   <React.StrictMode>
     <SectionList sections={sections}></SectionList>
   </React.StrictMode>,
-  document.querySelector("body")
+  document.querySelector("[data-container='root']")
 );
+
+//header
 
 // news
 let news = [
@@ -46,12 +52,12 @@ let news = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pharetra pharetra massa massa ultricies mi quis hendrerit dolor. Eget gravida cum sociis natoque penatibus et. Accumsan sit amet nulla facilisi. Velit aliquet sagittis id consectetur purus ut faucibus. Placerat duis ultricies lacus sed turpis tincidunt. Faucibus et molestie ac feugiat. Luctus accumsan tortor posuere ac ut consequat semper viverra. Fusce ut placerat orci nulla pellentesque dignissim. Nec nam aliquam sem et tortor consequat id porta nibh. Condimentum mattis pellentesque id nibh tortor id aliquet. Turpis massa sed elementum tempus egestas sed. Velit aliquet sagittis id consectetur. Tristique senectus et netus et. Adipiscing elit duis tristique sollicitudin nibh sit amet commodo nulla. Quam lacus suspendisse faucibus interdum. Ut enim blandit volutpat maecenas volutpat. Tellus in metus vulputate eu. Amet cursus sit amet dictum sit amet justo donec enim. Tortor pretium viverra suspendisse potenti nullam ac tortor. Turpis egestas maecenas",
     image: "images/news/1.jpg",
   },
-  // {
-  //   date: "",
-  //   title: "",
-  //   text: "",
-  //   image: "",
-  // },
+  {
+    date: "00.00.0000",
+    title: "Test",
+    text: "Test",
+    image: "",
+  },
 ];
 
 ReactDOM.render(
@@ -104,7 +110,7 @@ let episodes = [
     number: "03",
     title: "RUBRIKAS NOSAUKUMS: Epizodes nosaukums",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "Šis ir pēdējās epizodes apraksts. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     spotify: "",
     youtube: "",
     embed:
@@ -171,6 +177,34 @@ ReactDOM.render(
   </React.StrictMode>,
   document.querySelector('[data-container="komanda"]')
 );
+
+// form
+ReactDOM.render(
+  <React.StrictMode>
+    <Form></Form>
+  </React.StrictMode>,
+  document.querySelector('[data-container="bazars"]')
+);
+
+// contact form
+const inputs = document.querySelectorAll(".input");
+
+function focusFunc() {
+  let parent = this.parentNode;
+  parent.classList.add("focus");
+}
+
+function blurFunc() {
+  let parent = this.parentNode;
+  if (this.value == "") {
+    parent.classList.remove("focus");
+  }
+}
+
+inputs.forEach((input) => {
+  input.addEventListener("focus", focusFunc);
+  input.addEventListener("blur", blurFunc);
+});
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
