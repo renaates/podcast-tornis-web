@@ -6,6 +6,11 @@
   color: #272727;
 }
 
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
 body {
   min-width: 500px;
   scroll-behavior: smooth;
@@ -47,4 +52,8 @@ body {
 
 .hide {
   display: none;
+}
+
+.bold {
+  font-weight: bold;
 }

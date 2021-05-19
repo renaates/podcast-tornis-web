@@ -13,12 +13,8 @@
   width: 100%;
 }
 
-.newest-episode-container span {
-  margin: 5px;
-  color: white;
-}
-
 .newest-episode-container p {
   text-align: justify;
   color: white;
+  font-size: 18px;
 }

@@ -1,0 +1,18 @@
+.about-container {
+  width: 100%;
+  display: flex;
+  align-items: inherit;
+  justify-content: left;
+  text-align: justify;
+  font-size: 18px;
+}
+
+.about-image {
+  height: 300px;
+  border-radius: 25px;
+  margin-right: 20px;
+}
+
+.about-content {
+
+}
