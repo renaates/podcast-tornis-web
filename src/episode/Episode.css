@@ -1,13 +1,14 @@
 .episode-item {
-  padding: 50px 20px 80px 20px;
+  padding: 50px 20px 50px 20px;
   text-align: center;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   border-radius: 30px;
-  margin: 20px;
+  margin: 5px 20px 5px 20px;
 
   position: relative;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
 }
 
@@ -15,10 +16,10 @@
   overflow: hidden;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
 }
 
-.episode-item h2 {
+.episode-item .number {
   z-index: 9;
   position: absolute;
   top: 5px;
@@ -33,22 +34,21 @@
   border-radius: 100%;
   position: relative;
   margin-bottom: 15px;
+  width: calc(100% - 130px);
 }
 
-.episode-item h4 {
+.episode-item h3 {
   line-height: 2ex;
-  height: 6ex;
-  margin-top: 0px;
   font-size: 20px;
   color: #1e1e1e;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 .details-button {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
+  position: relative;
   font-size: 20px;
   font-weight: 400;
   text-decoration: none;
@@ -56,14 +56,12 @@
   border-radius: 25px;
   padding: 5px 20px 5px 20px;
   width: 40%;
-  bottom: 35px;
-  left: 0;
-  right: 0;
   margin-left: auto;
   margin-right: auto;
   background-color: #fff;
   border: 2px solid #e88073;
   transition: 0.2s;
+  cursor: pointer;
 }
 
 .details-button:hover {
@@ -72,38 +70,27 @@
 }
 
 @media (min-width: 0px) {
-  .rubric-image {
-    width: calc(100% / 4);
-  }
   .episode-description {
     -webkit-line-clamp: 10;
-  }
-  .episode-item {
-    width: calc(100vw - 30px);
-  }
-  .slick-slide {
-    width: calc(100vw - 30px);
   }
 }
 
 @media (min-width: 800px) {
-  .rubric-image {
-    width: calc(100% / 6);
-  }
   .episode-description {
     -webkit-line-clamp: 7;
   }
 }
 
 @media (min-width: 1600px) {
-  .rubric-image {
-    width: calc(100% / 7);
-  }
   .episode-description {
     -webkit-line-clamp: 6;
   }
-  .episode-item {
-    height: 100%;
-    width: calc(57% - 30px);
-  }
 }
+
+/* .react-multiple-carousel__arrow--right {
+  right: -40px;
+}
+
+.react-multiple-carousel__arrow--left {
+  left: -40px;
+} */

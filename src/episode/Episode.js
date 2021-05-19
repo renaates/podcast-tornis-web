@@ -13,10 +13,10 @@ export const Episode = ({
   return (
     <div className="episode-item">
       <img className="rubric-image" src={image} />
-      <h2>{number}</h2>
-      <h4>{title}</h4>
+      <p className="number">{number}</p>
+      <h3>{title}</h3>
       <div className="episode-description">{description}</div>
-      <div className="details-button">DETAĻAS</div>
+      <div className="details-button">VAIRĀK</div>
     </div>
   );
 };

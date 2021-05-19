@@ -40,11 +40,20 @@ section:nth-child(5) {
   font-size: 18px;
 }
 
+.section-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 @media (min-width: 0px) {
   .section-title {
     width: 90%;
   }
   .section-description {
+    width: 90%;
+  }
+  .section-content {
     width: 90%;
   }
 }
@@ -60,6 +69,9 @@ section:nth-child(5) {
   .section-description {
     width: 80%;
   }
+  .section-content {
+    width: 80%;
+  }
 }
 
 @media (min-width: 1600px) {
@@ -67,6 +79,9 @@ section:nth-child(5) {
     width: calc(57%);
   }
   .section-description {
+    width: 57%;
+  }
+  .section-content {
     width: 57%;
   }
 }

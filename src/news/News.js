@@ -6,8 +6,8 @@ export const News = ({ date, title, text, image }) => {
     <div className="news-item">
       <img className="news-image" src={image} />
       <div>
-        <p>{date}</p>
-        <h4>{title}</h4>
+        <p className="news-date">{date}</p>
+        <p className="news-title">{title}</p>
         <p className="news-text">{text}</p>
       </div>
     </div>

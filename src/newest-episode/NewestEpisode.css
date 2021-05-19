@@ -2,8 +2,6 @@
   margin-top: 30px;
   display: flex;
   flex-direction: column;
-  height: 100%;
-  width: 57%;
   justify-content: center;
   left: 0;
   right: 0;
@@ -19,14 +17,6 @@
   margin: 5px;
   color: white;
 }
-
-/* .newest-episode-container h4 {
-  text-align: justify;
-  font-size: 18px;
-  font-weight: 800;
-  color: white;
-  margin-bottom: 5px;
-} */
 
 .newest-episode-container p {
   text-align: justify;
