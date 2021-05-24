@@ -3,7 +3,7 @@ import { Section } from "../section/Section";
 import { EpisodeList } from "../episode-list/EpisodeList";
 import { PersonList } from "../person-list/PersonList";
 import { NewsList } from "../news-list/NewsList";
-import { NewestEpisodeList } from "../newest-episode/NewestEpisode-1";
+import { Landing } from "../landing/Landing";
 import { About } from "../about/About";
 import { Form } from "../form/Form";
 
@@ -18,8 +18,6 @@ let episodes = [
       'Tehniski vissarežģītākā projekta izstrādes daļa visbeidzot ir noslēgusies, tādēļ podkāsts "Tornis" uzsāk savu darbību! Klausies pilotepizodi un uzzini par projektu, tā pirmsākumiem, nākotnes plāniem un par iespēju arī Tev piedalīties nākotnes raidījumu veidošanā!',
     spotify: "",
     youtube: "",
-    embed:
-      "https://open.spotify.com/embed-podcast/episode/0oaGXdf3VGOXr3AvEfsQEW",
     extra: "",
   },
   {
@@ -31,8 +29,6 @@ let episodes = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex.",
     spotify: "",
     youtube: "",
-    embed:
-      "https://open.spotify.com/embed-podcast/episode/0oaGXdf3VGOXr3AvEfsQEW",
     extra: "",
   },
   {
@@ -44,8 +40,6 @@ let episodes = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex.",
     spotify: "",
     youtube: "",
-    embed:
-      "https://open.spotify.com/embed-podcast/episode/0oaGXdf3VGOXr3AvEfsQEW",
     extra: "",
   },
   {
@@ -57,7 +51,6 @@ let episodes = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     spotify: "",
     youtube: "",
-    embed: "https://open.spotify.com/embed/show/3s4gxp3CKEi7TDAd0w21S6",
     extra: "",
   },
   {
@@ -70,7 +63,6 @@ let episodes = [
     spotify:
       "https://open.spotify.com/episode/0oaGXdf3VGOXr3AvEfsQEW?si=JmFLSzauQNm4usyx7u8-Yw",
     youtube: "",
-    embed: "https://open.spotify.com/embed/show/3s4gxp3CKEi7TDAd0w21S6",
     extra: "",
   },
 ];
@@ -78,8 +70,7 @@ let episodes = [
 // newest episode
 let newest = [
   {
-    description: episodes[episodes.length - 1].description,
-    embed: episodes[episodes.length - 1].embed,
+    spotify: episodes[episodes.length - 1].spotify,
     youtube: episodes[episodes.length - 1].youtube,
   },
 ];
@@ -133,8 +124,8 @@ let team = [
 
 export const SectionList = () => (
   <div>
-    <Section name="jaunākā epizode" id="new">
-      <NewestEpisodeList newest={newest}></NewestEpisodeList>
+    <Section id="new">
+      <Landing newest={newest}></Landing>
     </Section>
     <Section name="jaunumi" id="jaunumi">
       <NewsList news={news}></NewsList>

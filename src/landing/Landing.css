@@ -1,0 +1,105 @@
+.wrap {
+  width: 100vw;
+  position: relative;
+}
+
+.wave {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+}
+
+.landing-container {
+  height: 800px;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+
+@media (min-width: 0px) {
+  .landing-container {
+    width: 90%;
+  }
+}
+
+@media (min-width: 800px) {
+  .landing-container {
+    width: 80%;
+  }
+}
+
+@media (min-width: 1600px) {
+  .landing-container {
+    width: 57%;
+  }
+}
+
+.landing-container p {
+  color: #fdf6f5;
+}
+
+.landing-container p:nth-child(1) {
+  font-size: 52px;
+  letter-spacing: 5px;
+  margin-bottom: -35px;
+}
+
+.landing-container p:nth-child(2) {
+  font-weight: bold;
+  font-size: 80px;
+  letter-spacing: 2px;
+}
+
+.landing-button {
+  width: 300px;
+  height: 70px;
+  background-color: transparent;
+  border: 2px solid #fdf6f5;
+  border-radius: 15px;
+  cursor: pointer;
+  color: #fdf6f5;
+  font-size: 24px;
+}
+
+.landing-button:hover {
+  background-color: #fdf6f5;
+  color: #e88073;
+}
+
+.landing-button {
+  text-align: center;
+  transition: all 0.5s;
+}
+
+.landing-button {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.landing-button:after {
+  content: "»";
+  position: absolute;
+  opacity: 0;
+  top: 14px;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.landing-button:hover {
+  padding-right: 24px;
+  padding-left: 8px;
+}
+
+.landing-button:hover:after {
+  opacity: 1;
+  right: 10px;
+}

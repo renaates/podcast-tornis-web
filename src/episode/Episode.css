@@ -92,7 +92,10 @@
 
 .social-media {
   height: 100%;
-  margin: 0 5px 0 5px;
+}
+
+.social-media.spotify {
+  margin: 0 5px 0 0;
 }
 
 .details-button:hover {

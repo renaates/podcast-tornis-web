@@ -6,6 +6,9 @@
   width: 100vw;
   height: auto;
   overflow: hidden;
+}
+
+.container:not(:nth-child(1)) {
   margin-bottom: 60px;
 }
 
@@ -23,13 +26,10 @@
 }
 
 section:nth-child(1) {
-  height: 100vh;
   background-image: url("bg.jpg");
-  background-position-y: -200px;
-  min-height: 100%;
+  background-position-y: -170px;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-position: center;
   background-size: cover;
 }
 
@@ -62,10 +62,6 @@ section:nth-child(1) {
   }
 }
 
-.container:nth-child(1) h1 {
-  color: #fff;
-}
-
 @media (min-width: 800px) {
   .section-title {
     width: 80%;
@@ -80,7 +76,7 @@ section:nth-child(1) {
 
 @media (min-width: 1600px) {
   .section-title {
-    width: calc(57%);
+    width: 57%;
   }
   .section-description {
     width: 57%;
