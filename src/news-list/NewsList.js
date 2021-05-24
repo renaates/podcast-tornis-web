@@ -20,7 +20,11 @@ export const responsive = {
 };
 
 export const NewsList = ({ news }) => (
-  <Carousel containerClass="news-container" responsive={responsive}>
+  <Carousel
+    containerClass="news-container"
+    responsive={responsive}
+    removeArrowOnDeviceType={["mobile"]}
+  >
     {news.map((article, index) => (
       <News {...article} key={index}></News>
     ))}
