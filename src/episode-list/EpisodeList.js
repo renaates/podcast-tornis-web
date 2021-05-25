@@ -1,5 +1,7 @@
 import React from "react";
 import Carousel from "react-multi-carousel";
+// import { useFirestore, useFirestoreCollectionData } from "reactfire";
+
 import "react-multi-carousel/lib/styles.css";
 import { Episode } from "../episode/Episode";
 import "./EpisodeList.css";
@@ -19,17 +21,29 @@ export const responsive = {
   },
 };
 
-export const EpisodeList = ({ episodes }) => (
-  <Carousel
-    responsive={responsive}
-    infinite={true}
-    containerClass="episode-container"
-    // showDots={true}
-    // renderDotsOutside={true}
-    removeArrowOnDeviceType={["mobile"]}
-  >
-    {episodes.map((episode, index) => (
-      <Episode {...episode} key={index}></Episode>
-    ))}
-  </Carousel>
-);
+export const EpisodeList = ({ episodes }) => {
+  // const episodesCollection = useFirestore().collection("episodes");
+
+  // const { status, data } = useFirestoreCollectionData(episodesCollection);
+
+  return (
+    <>
+      {/* <div>
+        <span>{status}</span>
+        <pre>{JSON.stringify(data, undefined, 2)}</pre>
+      </div> */}
+      <Carousel
+        responsive={responsive}
+        infinite={true}
+        containerClass="episode-container"
+        // showDots={true}
+        // renderDotsOutside={true}
+        removeArrowOnDeviceType={["mobile"]}
+      >
+        {episodes.map((episode, index) => (
+          <Episode {...episode} key={index}></Episode>
+        ))}
+      </Carousel>
+    </>
+  );
+};

@@ -7,16 +7,18 @@ import { Bazars } from "./bazars/Bazars";
 import { Rules } from "./rules/Rules";
 import { Footer } from "./footer/Footer";
 import reportWebVitals from "./reportWebVitals";
-import { doc } from "prettier";
+import { FirebaseProvider } from "./FirebaseProvider";
 
 // sections
 ReactDOM.render(
   <React.StrictMode>
-    <Header></Header>
-    <SectionList></SectionList>
-    <Rules></Rules>
-    <Bazars></Bazars>
-    <Footer></Footer>
+    <FirebaseProvider>
+      <Header></Header>
+      <SectionList></SectionList>
+      <Rules></Rules>
+      <Bazars></Bazars>
+      <Footer></Footer>
+    </FirebaseProvider>
   </React.StrictMode>,
   document.querySelector("[data-container='root']")
 );
