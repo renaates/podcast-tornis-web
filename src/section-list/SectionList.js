@@ -67,13 +67,8 @@ let episodes = [
   },
 ];
 
-// newest episode
-let newest = [
-  {
-    spotify: episodes[episodes.length - 1].spotify,
-    youtube: episodes[episodes.length - 1].youtube,
-  },
-];
+// newest episode spotify
+let newest = episodes[episodes.length - 1].spotify;
 
 // news
 let news = [
@@ -125,7 +120,7 @@ let team = [
 export const SectionList = () => (
   <div>
     <Section id="new">
-      <Landing newest={newest}></Landing>
+      <Landing spotify={newest}></Landing>
     </Section>
     <Section name="jaunumi" id="jaunumi">
       <NewsList news={news}></NewsList>

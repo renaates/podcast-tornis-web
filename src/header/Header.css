@@ -1,49 +1,11 @@
-/* .not-fixed {
-  width: 57%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding: 15px 30px 15px 30px;
-  position: absolute;
-  top: 10%;
-}
-
-.fixed {
-  position: fixed;
-  background-color: #e88073;
-  border-radius: 25px;
-  z-index: 20;
-  margin-top: 15px;
-  left: 0;
-  right: 0;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.fixed a {
-  color: #fff;
-}
-
-.fixed a:hover {
-  transform: scale(1.025);
-}
-
-.not-fixed a:hover {
-  transform: scale(1.025);
-  color: #e88073;
-} */
-
-/**/
-
 .header {
   width: 100%;
   height: 60px;
   position: fixed;
   z-index: 2000;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
-  background-color: #fdf6f5;
 }
 
 .header-content {
@@ -54,11 +16,20 @@
   padding: 10px;
 }
 
-header a {
+.header-wave {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  z-index: 1999;
+}
+
+.header a {
   font-size: 20px;
   text-decoration: none;
   letter-spacing: 1px;
-  transition: all 0.1s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  z-index: 2000;
 }
 
 .header-content > a:hover {

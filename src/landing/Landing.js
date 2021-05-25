@@ -1,7 +1,7 @@
 import React from "react";
 import "./Landing.css";
 
-export const Landing = ({ spotify, youtube }) => {
+export const Landing = ({ spotify }) => {
   return (
     <div>
       <div className="landing-container">
@@ -9,9 +9,9 @@ export const Landing = ({ spotify, youtube }) => {
           <p>PODKĀSTS</p>
           <p>TORNIS</p>
         </div>
-        <form action={spotify}>
+        <a href={spotify} target="blank">
           <button className="landing-button">JAUNĀKĀ EPIZODE</button>
-        </form>
+        </a>
       </div>
       <div className="wrap">
         <img src="../images/wave.svg" className="wave" />

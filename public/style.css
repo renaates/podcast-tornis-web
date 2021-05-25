@@ -16,32 +16,6 @@ body {
   scroll-behavior: smooth;
 }
 
-/* footer */
-
-.footer {
-  background-color: #efe8e1;
-  height: 200px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.footer2 {
-  padding: 5px;
-  width: 100%;
-  background-color: #efe8e142;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.footer2 p {
-  color: #757575;
-}
-
-/* other */
-
 .underline {
   text-decoration: underline;
 }
