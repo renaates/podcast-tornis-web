@@ -1,6 +1,6 @@
 .footer {
-  position: static;
   display: flex;
+  width: 100vw;
 }
 
 .footer-content {
@@ -9,14 +9,61 @@
   flex-direction: column;
   align-items: center;
   z-index: 2000;
+  margin-top: 20px;
 }
 
 .footer-content-1 {
   display: flex;
-  height: 120px;
-  flex-direction: row;
-  justify-content: space-between;
+  height: 150px;
   align-items: center;
+  justify-content: center;
+}
+
+.footer-wave {
+  position: absolute;
+  width: 100vw;
+  z-index: -1;
+}
+
+.footer-socials-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
+}
+
+.footer-socials:not(:last-child) {
+  margin-right: 75px;
+}
+
+.footer-socials img {
+  height: 50px;
+  transition: all 0.2s ease-in-out;
+}
+
+.footer-socials img:hover {
+  filter: brightness(1.1);
+  transform: scale(1.075);
+}
+
+.footer-socials a {
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.footer-1 {
+  padding: 5px 0 5px 0;
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-1 span {
+  color: #757575;
 }
 
 @media (min-width: 0px) {
@@ -37,44 +84,38 @@
   }
 }
 
-.footer-wave {
-  position: absolute;
-  width: 100vw;
-  z-index: -1;
-}
-
-.footer-socials-container {
-  display: flex;
-  flex-direction: row;
-}
-
-.footer-socials-container-1:nth-child(1) {
-  margin-right: 20px;
-}
-
-.footer-socials-container-1 .footer-socials:nth-child(2) {
-  margin-top: 15px;
-}
-
-.footer-socials img {
-  height: 50px;
-  margin-right: 8px;
-}
-
-.footer-socials a {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-}
-
-.footer2 {
-  padding: 5px;
-  width: 100%;
+.footer-socials {
   display: flex;
   justify-content: center;
-  align-items: center;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
-.footer2 p {
-  color: #757575;
+.footer-socials a span {
+  display: flex;
+  justify-content: center;
+  color: #666;
+  position: absolute;
+  top: 0;
+  left: -25px;
+  right: -25px;
+  padding: 5px 7px;
+  z-index: -1;
+  font-size: 18px;
+  border-radius: 2px;
+  visibility: hidden;
+  opacity: 0;
+  -o-transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  -webkit-transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  -moz-transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.footer-socials a:hover span {
+  top: 50px;
+  visibility: visible;
+  opacity: 1;
 }
