@@ -15,7 +15,7 @@ export const Episode = ({
     <div className="episode-item">
       <img className="rubric-image" src={image} />
       <p className="number">{number}</p>
-      <div class="rubric-and-title">
+      <div className="rubric-and-title">
         <h3 className="rubric">{rubric}:</h3>
         <h3 className="title">{title}</h3>
       </div>

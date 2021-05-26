@@ -24,7 +24,7 @@ export const Input = ({
           }
         }}
       />
-      <label for="">{label}</label>
+      <label htmlFor="">{label}</label>
       <span>{label}</span>
     </div>
   );
