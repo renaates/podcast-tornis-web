@@ -1,28 +1,9 @@
-import { StrictMode } from "react";
 import ReactDOM from "react-dom";
 
-import { SectionList } from "./section-list/SectionList";
-import { Header } from "./header/Header";
-import { Bazars } from "./bazars/Bazars";
-import { Rules } from "./rules/Rules";
-import { Footer } from "./footer/Footer";
-import { FirebaseProvider } from "./FirebaseProvider";
-
-import "./index.css";
+import { App } from "./app/App";
 
 // sections
-ReactDOM.render(
-  <StrictMode>
-    <FirebaseProvider>
-      <Header></Header>
-      <SectionList></SectionList>
-      <Rules></Rules>
-      <Bazars></Bazars>
-      <Footer></Footer>
-    </FirebaseProvider>
-  </StrictMode>,
-  document.querySelector("[data-container='root']")
-);
+ReactDOM.render(<App />, document.querySelector("[data-container='root']"));
 
 // contact form
 const inputs = document.querySelectorAll(".input");
