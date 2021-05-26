@@ -1,7 +1,10 @@
 import React from "react";
-import { News } from "../news/News";
+import { useFirestore, useFirestoreCollectionData } from "reactfire";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import { DateTime } from "luxon";
+
+import { News } from "../news/News";
 import "./NewsList.css";
 
 export const responsive = {
@@ -19,7 +22,7 @@ export const responsive = {
   },
 };
 
-export const NewsList = ({ news }) => (
+const NewsList = ({ news }) => (
   <Carousel
     containerClass="news-container"
     responsive={responsive}
@@ -30,3 +33,29 @@ export const NewsList = ({ news }) => (
     ))}
   </Carousel>
 );
+
+export const NewsListWithData = () => {
+  const episodesCollection = useFirestore().collection("news");
+  const { status, data } = useFirestoreCollectionData(episodesCollection);
+
+  //'loading' | 'error' | 'success'
+
+  if (status === "error") {
+    return "Notika kļūme";
+  }
+
+  if (status === "loading") {
+    return "Ielādējam datus, uzgaidi";
+  }
+
+  return (
+    <NewsList
+      news={data.map((article) => ({
+        ...article,
+        date: DateTime.fromJSDate(article.date.toDate()).toLocaleString({
+          locale: "lv-LV",
+        }),
+      }))}
+    />
+  );
+};

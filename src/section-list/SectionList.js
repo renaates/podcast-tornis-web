@@ -2,7 +2,7 @@ import React from "react";
 import { Section } from "../section/Section";
 import { EpisodeList } from "../episode-list/EpisodeList";
 import { PersonList } from "../person-list/PersonList";
-import { NewsList } from "../news-list/NewsList";
+import { NewsListWithData } from "../news-list/NewsList";
 import { Landing } from "../landing/Landing";
 import { About } from "../about/About";
 import { Form } from "../form/Form";
@@ -70,24 +70,6 @@ let episodes = [
 // newest episode spotify
 let newest = episodes[episodes.length - 1].spotify;
 
-// news
-let news = [
-  {
-    date: "02.04.2021",
-    title: "Aparatūra un pilotepizodes ierakstīšana",
-    text:
-      'Šodien, 2021. gada 2. aprīlī, ievērojot drošības pasākumus, Talsu Valsts ģimnāzijas stadionā norisinājās jau no pagājušā gada rūpīgi lolotā projekta "Podkāsts Tornis" pilotepizodes ierakstīšana kopā ar visu "Torņa" komandu - Renāti Spirgu, Līvu Kristu Učelnieci, Reini Lozberu, Robertu Pičukanu un Dāvi Indriksonu. Pavisam nesen tika saņemta lielākā daļa aparatūras, kas projekta attīstību jau veicinājusi lielā mērā. Uz drīzu sadzirdēšanos!',
-    image: "images/news/001.jpg",
-  },
-  {
-    date: "28.05.2021",
-    title: 'Podkāsts "Tornis" ir gaisā!',
-    text:
-      "Piemērs tam, kā būtu, ja teksts ļoti garš. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pharetra pharetra massa massa ultricies mi quis hendrerit dolor. Eget gravida cum sociis natoque penatibus et. Accumsan sit amet nulla facilisi. Velit aliquet sagittis id consectetur purus ut faucibus. Placerat duis ultricies lacus sed turpis tincidunt. Faucibus et molestie ac feugiat. Luctus accumsan tortor posuere ac ut consequat semper viverra. Fusce ut placerat orci nulla pellentesque dignissim. Nec nam aliquam sem et tortor consequat id porta nibh. Condimentum mattis pellentesque id nibh tortor id aliquet. Turpis massa sed elementum tempus egestas sed. Velit aliquet sagittis id consectetur. Tristique senectus et netus et. Adipiscing elit duis tristique sollicitudin nibh sit amet commodo nulla. Quam lacus suspendisse faucibus interdum. Ut enim blandit volutpat maecenas volutpat. Tellus in metus vulputate eu. Amet cursus sit amet dictum sit amet justo donec enim. Tortor pretium viverra suspendisse potenti nullam ac tortor. Turpis egestas maecenas.",
-    image: "images/news/002.jpg",
-  },
-];
-
 // team
 let team = [
   {
@@ -123,7 +105,7 @@ export const SectionList = () => (
       <Landing spotify={newest}></Landing>
     </Section>
     <Section name="jaunumi" id="jaunumi">
-      <NewsList news={news}></NewsList>
+      <NewsListWithData />
     </Section>
     <Section name="epizodes" id="epizodes">
       <EpisodeList episodes={episodes}></EpisodeList>

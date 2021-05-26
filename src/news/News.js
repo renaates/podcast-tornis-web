@@ -3,17 +3,17 @@ import "./News.css";
 
 export const News = ({ date, title, text, image }) => {
   return (
-    <div className="news-item">
+    <article className="news-item">
       <img className="news-image" src={image} />
       <div>
         <div>
-          <p className="news-date">{date}</p>
-          <p className="news-title">{title}</p>
+          <time className="news-date">{date}</time>
+          <h3 className="news-title">{title}</h3>
         </div>
         <div className="news-text-container">
           <p className="news-text">{text}</p>
         </div>
       </div>
-    </div>
+    </article>
   );
 };
