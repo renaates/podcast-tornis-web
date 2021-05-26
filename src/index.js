@@ -1,17 +1,18 @@
-import React from "react";
+import { StrictMode } from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
+
 import { SectionList } from "./section-list/SectionList";
 import { Header } from "./header/Header";
 import { Bazars } from "./bazars/Bazars";
 import { Rules } from "./rules/Rules";
 import { Footer } from "./footer/Footer";
-import reportWebVitals from "./reportWebVitals";
 import { FirebaseProvider } from "./FirebaseProvider";
+
+import "./index.css";
 
 // sections
 ReactDOM.render(
-  <React.StrictMode>
+  <StrictMode>
     <FirebaseProvider>
       <Header></Header>
       <SectionList></SectionList>
@@ -19,7 +20,7 @@ ReactDOM.render(
       <Bazars></Bazars>
       <Footer></Footer>
     </FirebaseProvider>
-  </React.StrictMode>,
+  </StrictMode>,
   document.querySelector("[data-container='root']")
 );
 
@@ -100,8 +101,3 @@ window.onclick = function (event) {
     rulesModal.style.display = "none";
   }
 };
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
