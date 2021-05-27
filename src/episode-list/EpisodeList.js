@@ -1,12 +1,12 @@
 import React from "react";
 import Carousel from "react-multi-carousel";
-// import { useFirestore, useFirestoreCollectionData } from "reactfire";
+import { useFirestore, useFirestoreCollectionData } from "reactfire";
 
 import "react-multi-carousel/lib/styles.css";
 import { Episode } from "../episode/Episode";
 import "./EpisodeList.css";
 
-export const responsive = {
+const responsive = {
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
     items: 3,
@@ -21,17 +21,9 @@ export const responsive = {
   },
 };
 
-export const EpisodeList = ({ episodes }) => {
-  // const episodesCollection = useFirestore().collection("episodes");
-
-  // const { status, data } = useFirestoreCollectionData(episodesCollection);
-
+const EpisodeList = ({ episodes }) => {
   return (
     <>
-      {/* <div>
-        <span>{status}</span>
-        <pre>{JSON.stringify(data, undefined, 2)}</pre>
-      </div> */}
       <Carousel
         responsive={responsive}
         infinite={true}
@@ -44,4 +36,19 @@ export const EpisodeList = ({ episodes }) => {
       </Carousel>
     </>
   );
+};
+
+export const EpisodeListWithData = () => {
+  const episodeCollection = useFirestore().collection("episodes");
+  const { status, data } = useFirestoreCollectionData(episodeCollection);
+
+  if (status === "error") {
+    return "Notika kļūme";
+  }
+
+  if (status === "loading") {
+    return "Ielādējam datus, uzgaidi";
+  }
+
+  return <EpisodeList episodes={data.map((episode) => ({ ...episode }))} />;
 };

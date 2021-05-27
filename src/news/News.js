@@ -5,7 +5,7 @@ export const News = ({ date, title, text, image }) => {
   return (
     <article className="news-item">
       <img className="news-image" src={image} />
-      <div>
+      <div className="news-info-container">
         <div>
           <time className="news-date">{date}</time>
           <h3 className="news-title">{title}</h3>

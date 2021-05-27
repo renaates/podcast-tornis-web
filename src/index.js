@@ -1,27 +1,8 @@
 import ReactDOM from "react-dom";
-
 import { App } from "./app/App";
 
 // sections
 ReactDOM.render(<App />, document.querySelector("[data-container='root']"));
-
-// vairāk
-
-let episodeImage = document.querySelector(".rubric-image");
-let episodeNumber = document.querySelector(".number");
-let detailsButton = document.querySelector(".details-button");
-
-detailsButton.addEventListener("click", hideEpisodeContent);
-
-function hideEpisodeContent() {
-  episodeImage.classList.toggle("hide");
-  episodeNumber.classList.toggle("hide");
-  if (detailsButton.classList.containts("hide")) {
-    detailsButton.innerHTML = "MAZĀK";
-  } else {
-    detailsButton.innerHTML = "VAIRĀK";
-  }
-}
 
 // bazars modal
 

@@ -1,6 +1,6 @@
 import React from "react";
 import { Section } from "../section/Section";
-import { EpisodeList } from "../episode-list/EpisodeList";
+import { EpisodeListWithData } from "../episode-list/EpisodeList";
 import { PersonListWithData } from "../person-list/PersonList";
 import { NewsListWithData } from "../news-list/NewsList";
 import { Landing } from "../landing/Landing";
@@ -24,9 +24,9 @@ let episodes = [
     image: "images/rubrics/domatava.jpg",
     number: "01",
     rubric: "Domātava",
-    title: "Diezgan garš epizodes nosaukums",
+    title: "Imants Fokerots par piedzīvoto Černobiļā",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex.",
+      "Ultramaratoniste un Talsu Valsts ģimnāzijas dežurante Dace Hartmane ar sportu nodarbojusies ir visu savu dzīvi un vairākas reizes ir paveikusi to, kas lielai sabiedrības daļai var šķist fiziski neiespējami. Piemēram, viens no viņas visiespaidīģakajiem sasniegumiem ir 144 kilometru garais ultramaratons. Kā viņa līdz tam nonāca un kā viņai tas izdevās? Kas viņu motivē to darīt? Klausies epizodi un uzzini!",
     spotify: "",
     youtube: "",
     extra: "",
@@ -79,7 +79,7 @@ export const SectionList = () => (
       <NewsListWithData />
     </Section>
     <Section name="epizodes" id="epizodes">
-      <EpisodeList episodes={episodes}></EpisodeList>
+      <EpisodeListWithData episodes={episodes}></EpisodeListWithData>
     </Section>
     <Section name="par projektu" id="par">
       <About></About>
