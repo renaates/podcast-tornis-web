@@ -106,7 +106,7 @@ export const Form = () => {
         <input type="radio" name="terms" value="check" id="agree" required />{" "}
         <span>
           Esmu iepazinies ar{" "}
-          <a className="rules-btn">
+          <a className="rules-btn" href="#">
             <span className="underline">noteikumiem</span>
           </a>
         </span>

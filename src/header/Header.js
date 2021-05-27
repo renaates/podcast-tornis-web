@@ -5,7 +5,7 @@ export const Header = () => {
   return (
     <div>
       <header className="header">
-        <img className="header-wave" src="../images/header.svg" />
+        <img className="header-wave" src="../images/header.svg" alt="wave" />
         <div className="header-content">
           <a href="#new">SĀKUMS</a>
           <a href="#jaunumi">JAUNUMI</a>

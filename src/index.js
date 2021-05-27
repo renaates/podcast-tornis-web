@@ -39,7 +39,7 @@ rulesModalSpan.onclick = function () {
 };
 
 window.onclick = function (event) {
-  if (event.target == rulesModal) {
+  if (event.target === rulesModal) {
     rulesModal.style.display = "none";
   }
 };
