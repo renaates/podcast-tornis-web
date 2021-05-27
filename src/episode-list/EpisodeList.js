@@ -8,11 +8,11 @@ import "./EpisodeList.css";
 
 export const responsive = {
   desktop: {
-    breakpoint: { max: 3000, min: 1600 },
+    breakpoint: { max: 3000, min: 1024 },
     items: 3,
   },
   tablet: {
-    breakpoint: { max: 1600, min: 800 },
+    breakpoint: { max: 1024, min: 768 },
     items: 2,
   },
   mobile: {
@@ -36,8 +36,6 @@ export const EpisodeList = ({ episodes }) => {
         responsive={responsive}
         infinite={true}
         containerClass="episode-container"
-        // showDots={true}
-        // renderDotsOutside={true}
         removeArrowOnDeviceType={["mobile"]}
       >
         {episodes.map((episode, index) => (

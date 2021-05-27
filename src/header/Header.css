@@ -36,13 +36,13 @@
   color: #e88073;
 }
 
-@media (min-width: 800px) {
+@media (min-width: 768px) {
   .header-content {
     width: 80%;
   }
 }
 
-@media (min-width: 1600px) {
+@media (min-width: 1024px) {
   .header-content {
     width: 57%;
   }

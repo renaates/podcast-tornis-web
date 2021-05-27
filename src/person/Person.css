@@ -1,21 +1,3 @@
-@media (min-width: 0px) {
-  .person-item {
-    width: 100%;
-  }
-}
-
-@media (min-width: 800px) {
-  .person-item {
-    width: calc(50% - 20px);
-  }
-}
-
-@media (min-width: 1600px) {
-  .person-item {
-    width: calc(100% / 3 - 40px);
-  }
-}
-
 .person-item {
   background-color: #fff;
   height: 25%;
@@ -36,4 +18,22 @@
   flex-direction: column;
   padding: 15px;
   justify-content: center;
+}
+
+@media (min-width: 0px) {
+  .person-item {
+    width: 100%;
+  }
+}
+
+@media (min-width: 768px) {
+  .person-item {
+    width: calc(50% - 20px);
+  }
+}
+
+@media (min-width: 1024px) {
+  .person-item {
+    width: calc(100% / 3 - 40px);
+  }
 }

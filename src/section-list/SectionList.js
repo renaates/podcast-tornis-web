@@ -1,7 +1,7 @@
 import React from "react";
 import { Section } from "../section/Section";
 import { EpisodeList } from "../episode-list/EpisodeList";
-import { PersonList } from "../person-list/PersonList";
+import { PersonListWithData } from "../person-list/PersonList";
 import { NewsListWithData } from "../news-list/NewsList";
 import { Landing } from "../landing/Landing";
 import { About } from "../about/About";
@@ -10,7 +10,7 @@ import { Form } from "../form/Form";
 // episodes
 let episodes = [
   {
-    image: "images/rubrics/general.png",
+    image: "images/rubrics/general.jpg",
     number: "00",
     rubric: "Tornis",
     title: "Pilotepizode",
@@ -21,7 +21,7 @@ let episodes = [
     extra: "",
   },
   {
-    image: "images/rubrics/domatava.png",
+    image: "images/rubrics/domatava.jpg",
     number: "01",
     rubric: "Domātava",
     title: "Diezgan garš epizodes nosaukums",
@@ -32,7 +32,7 @@ let episodes = [
     extra: "",
   },
   {
-    image: "images/rubrics/bazars.png",
+    image: "images/rubrics/bazars.jpg",
     number: "02",
     rubric: "Bazars",
     title: "Epizodes nosaukums",
@@ -43,7 +43,7 @@ let episodes = [
     extra: "",
   },
   {
-    image: "images/rubrics/akvarijs.png",
+    image: "images/rubrics/akvarijs.jpg",
     number: "03",
     rubric: "Akvārijs",
     title: "Epizodes nosaukums",
@@ -54,7 +54,7 @@ let episodes = [
     extra: "",
   },
   {
-    image: "images/rubrics/folijas-cepurites.png",
+    image: "images/rubrics/folijas-cepurites.jpg",
     number: "04",
     rubric: "Folijas cepurītes",
     title: "Epizodes nosaukums",
@@ -69,35 +69,6 @@ let episodes = [
 
 // newest episode spotify
 let newest = episodes[episodes.length - 1].spotify;
-
-// team
-let team = [
-  {
-    image: "images/team/reinislozbers.jpg",
-    name: "Reinis Lozbers",
-    role: "Tehnika, skaņa, pēcapstrāde",
-  },
-  {
-    image: "images/team/renatespirga.png",
-    name: "Renāte Spirga",
-    role: "Grafiskais dizains, mājaslapas izstrāde, pēcapstrāde, saturs",
-  },
-  {
-    image: "images/team/livakristaucelniece.png",
-    name: "Līva Krista Učelniece",
-    role: "Sociālie tīkli, saturs, plānošana",
-  },
-  {
-    image: "images/team/robertspicukans.png",
-    name: "Roberts Pičukans",
-    role: "Pēcapstrāde, saturs",
-  },
-  {
-    image: "images/team/davisindriksons.jpg",
-    name: "Dāvis Indriksons",
-    role: "Sociālie tīkli, saturs",
-  },
-];
 
 export const SectionList = () => (
   <div>
@@ -117,7 +88,7 @@ export const SectionList = () => (
       id="komanda"
       description='Šeit redzami cilvēki, kas šobrīd aktīvi iesaistās podkāsta izveides procesā un ir pastāvīgi "Torņa" komandas biedri, kā arī tie, kuri ir piedalījušies projekta izstrādē un pilnveidošanā.'
     >
-      <PersonList team={team}></PersonList>
+      <PersonListWithData />
     </Section>
     <Section
       name="bazars"

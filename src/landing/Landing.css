@@ -23,24 +23,6 @@
   margin: 0 auto;
 }
 
-@media (min-width: 0px) {
-  .landing-container {
-    width: 90%;
-  }
-}
-
-@media (min-width: 800px) {
-  .landing-container {
-    width: 80%;
-  }
-}
-
-@media (min-width: 1600px) {
-  .landing-container {
-    width: 57%;
-  }
-}
-
 .landing-container p {
   color: #fdf6f5;
 }
@@ -102,4 +84,22 @@
 .landing-button:hover:after {
   opacity: 1;
   right: 10px;
+}
+
+@media (min-width: 0px) {
+  .landing-container {
+    width: 90%;
+  }
+}
+
+@media (min-width: 768px) {
+  .landing-container {
+    width: 80%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .landing-container {
+    width: 57%;
+  }
 }

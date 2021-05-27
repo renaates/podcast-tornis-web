@@ -66,7 +66,7 @@ section:nth-child(1) {
   }
 }
 
-@media (min-width: 800px) {
+@media (min-width: 768px) {
   .section-title {
     width: 80%;
   }
@@ -78,7 +78,7 @@ section:nth-child(1) {
   }
 }
 
-@media (min-width: 1600px) {
+@media (min-width: 1024px) {
   .section-title {
     width: 57%;
   }
