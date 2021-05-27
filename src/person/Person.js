@@ -4,7 +4,7 @@ import "./Person.css";
 export const Person = ({ image, name, role }) => {
   return (
     <div className="person-item">
-      <img className="person-image" src={image} />
+      <img className="person-image" src={image} alt={name} />
       <div className="person-description">
         <h4>{name}</h4>
         <p>{role}</p>
