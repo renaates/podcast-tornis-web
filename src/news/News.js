@@ -4,7 +4,7 @@ import "./News.css";
 export const News = ({ date, title, text, image }) => {
   return (
     <article className="news-item">
-      <img className="news-image" src={image} />
+      <img className="news-image" src={image} alt={title} />
       <div>
         <div>
           <time className="news-date">{date}</time>

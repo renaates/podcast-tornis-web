@@ -14,7 +14,7 @@ export const Landing = ({ spotify }) => {
         </a>
       </div>
       <div className="wrap">
-        <img src="../images/wave.svg" className="wave" />
+        <img src="../images/wave.svg" className="wave" alt="wave" />
       </div>
     </div>
   );
