@@ -21,7 +21,7 @@ const responsive = {
   },
 };
 
-const EpisodeList = ({ episodes }) => {
+export const EpisodeList = ({ episodes }) => {
   return (
     <>
       <Carousel

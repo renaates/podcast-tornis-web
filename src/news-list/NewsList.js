@@ -53,7 +53,7 @@ export const NewsListWithData = () => {
       news={data.map((article) => ({
         ...article,
         date: DateTime.fromJSDate(article.date.toDate()).toLocaleString({
-          locale: "lv-LV",
+          locale: "fr-BE",
         }),
       }))}
     />

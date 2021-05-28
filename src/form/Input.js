@@ -25,7 +25,11 @@ export const Input = ({
         }}
       />
       <label htmlFor="">{label}</label>
-      <span>{label}</span>
+      {isFocused ? (
+        <span className="spanLabel">{label}</span>
+      ) : (
+        <span>{label}</span>
+      )}
     </div>
   );
 };

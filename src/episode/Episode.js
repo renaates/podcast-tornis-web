@@ -22,11 +22,13 @@ export const Episode = ({
     <div className="episode-item">
       <div>
         {isExpanded ? (
-          <div className="foo">
+          <div>
             <img className="rubric-image" src={image} />
             <p className="number">{number}</p>
           </div>
-        ) : undefined}
+        ) : (
+          <p className="number contracted-number">{number}</p>
+        )}
       </div>
       <div className="rubric-and-title">
         <h3 className="rubric">{rubric}:</h3>

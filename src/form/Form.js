@@ -5,18 +5,14 @@ import { Input } from "./Input";
 export const Form = () => {
   return (
     <div className="contact-form">
-      <form
-        className="form"
-        action="#"
-        // onSubmit="if(document.getElementById('agree').checked) { return true; } else { alert('Norādi, ka esi iepazinies ar noteikumiem!'); return false; }"
-      >
+      <form className="form" action="#">
         <div className="row">
           <Input
             label="PILNS VĀRDS"
             containerClassName="input-container half"
             type="text"
             name="name"
-            className="input"
+            className="input form-control"
             required
           />
 
@@ -25,7 +21,7 @@ export const Form = () => {
             containerClassName="input-container half"
             type="email"
             name="email"
-            className="input"
+            className="input form-control"
             required
           />
         </div>
@@ -37,7 +33,7 @@ export const Form = () => {
               containerClassName="input-container half"
               type="text"
               name="name1"
-              className="input"
+              className="input form-control"
               required
             />
             <Input
@@ -47,7 +43,7 @@ export const Form = () => {
               name="className"
               min="9"
               max="12"
-              className="input"
+              className="input form-control"
               required
             />
           </div>
@@ -100,10 +96,10 @@ export const Form = () => {
           label="IDEJAS APRAKSTS UN PAPILDUS INFORMĀCIJA"
           containerClassName="input-container textarea"
           name="message"
-          className="input full"
+          className="input full form-control"
           required
         />
-        <input type="radio" name="terms" value="check" id="agree" required />{" "}
+        <input type="checkbox" name="terms" value="check" id="agree" required />{" "}
         <span>
           Esmu iepazinies ar{" "}
           <a className="rules-btn" href="#">

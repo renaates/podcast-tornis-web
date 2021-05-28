@@ -135,6 +135,11 @@ form {
   transition: 0.3s;
 }
 
+.spanLabel {
+  background-color: white;
+  filter: opacity(0.7);
+}
+
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
@@ -145,6 +150,8 @@ input:-webkit-autofill:active {
 input[name="className"] {
   text-align: center;
 }
+
+input[label]
 
 .rules-btn {
   cursor: pointer;

@@ -1,6 +1,6 @@
 import React from "react";
 import { Section } from "../section/Section";
-import { EpisodeListWithData } from "../episode-list/EpisodeList";
+import { EpisodeList } from "../episode-list/EpisodeList";
 import { PersonListWithData } from "../person-list/PersonList";
 import { NewsListWithData } from "../news-list/NewsList";
 import { Landing } from "../landing/Landing";
@@ -79,7 +79,7 @@ export const SectionList = () => (
       <NewsListWithData />
     </Section>
     <Section name="epizodes" id="epizodes">
-      <EpisodeListWithData episodes={episodes}></EpisodeListWithData>
+      <EpisodeList episodes={episodes}></EpisodeList>
     </Section>
     <Section name="par projektu" id="par">
       <About></About>
