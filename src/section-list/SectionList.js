@@ -9,28 +9,10 @@ import { About } from "../about/About";
 import { Bazars } from "../bazars/Bazars";
 import { Form } from "../form/Form";
 
-// newest episode spotify
-let NewestEpisodeData = () => {
-  const episodeCollection = useFirestore()
-    .collection("episodes")
-    .orderBy("number", "desc")
-    .limit(1);
-  // const { status, data } = useFirestoreCollectionData(episodeCollection);
-
-  // if (status === "error") {
-  //   return "Notika kļūme";
-  // }
-
-  // if (status === "loading") {
-  //   return "Ielādējam datus, uzgaidi";
-  // }
-};
-// let newest = episodes[episodes.length - 1].spotify;
-
 export const SectionList = () => (
   <div>
     <Section id="new">
-      <Landing spotify={NewestEpisodeData}></Landing>
+      <Landing></Landing>
     </Section>
     <Section name="jaunumi" id="jaunumi">
       <NewsListWithData />
