@@ -1,5 +1,5 @@
 import React from "react";
-import { useFirestore, useFirestoreCollectionData } from "reactfire";
+// import { useFirestore, useFirestoreCollectionData } from "reactfire";
 import { Section } from "../section/Section";
 import { EpisodeListWithData } from "../episode-list/EpisodeList";
 import { PersonListWithData } from "../person-list/PersonList";
