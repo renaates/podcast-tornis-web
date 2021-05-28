@@ -3,6 +3,10 @@ import "./Bazars.css";
 
 export const Bazars = () => {
   const [isColoredHowTo, setColoredHowTo] = useState(true);
+  const toggle = () => {
+    setColoredHowTo(!isColoredHowTo);
+    setColoredRules(!isColoredRules);
+  };
   const [isColoredRules, setColoredRules] = useState(false);
 
   const rules = (
@@ -53,30 +57,28 @@ export const Bazars = () => {
     <div className="about-bazars">
       <div className="bazars-expand-btns">
         <a
-          onClick={() => setColoredHowTo(true)}
-          onClick={() => setColoredRules(false)}
+          onClick={toggle}
           className={
             isColoredHowTo
               ? "colored bazars-title-container"
-              : "bazars-title-container"
+              : "not-colored bazars-title-container"
           }
         >
           <h3 className="bazars-howto-title bazars-title">Norise</h3>
         </a>
         <a
-          onClick={() => setColoredHowTo(false)}
-          onClick={() => setColoredRules(true)}
+          onClick={toggle}
           className={
             isColoredRules
               ? "colored bazars-title-container"
-              : "bazars-title-container"
+              : "not-colored bazars-title-container"
           }
         >
           <h3 className="bazars-rules-title bazars-title">Noteikumi</h3>
         </a>
       </div>
       {isColoredHowTo ? undefined : rules}
-      {isColoredRules ? rules : howTo}
+      {isColoredRules ? undefined : howTo}
     </div>
   );
 };

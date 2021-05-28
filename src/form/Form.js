@@ -12,6 +12,7 @@ export const Form = () => {
           type="text"
           name="name"
           className="input"
+          autocomplete="off"
           required
         />
 

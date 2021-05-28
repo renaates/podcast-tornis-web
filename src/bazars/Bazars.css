@@ -10,8 +10,6 @@
   justify-content: center;
   align-items: center;
   transition: 0.2s;
-  border: 2px solid #e88073;
-  background-color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -41,6 +39,11 @@
   background-color: #e88073;
   color: #fff;
   filter: brightness(1.1);
+}
+
+.not-colored {
+  border: 2px solid #e88073;
+  background-color: #fff;
 }
 
 .colored {
