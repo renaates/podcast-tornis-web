@@ -107,7 +107,13 @@
 }
 
 @media (min-width: 1024px) {
+
+}
+
+
+@media (min-width: 1440px) {
   .footer-content-1 {
     width: 57%;
   }
 }
+

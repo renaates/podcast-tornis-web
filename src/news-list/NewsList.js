@@ -9,15 +9,15 @@ import "./NewsList.css";
 
 export const responsive = {
   desktop: {
-    breakpoint: { max: 3000, min: 1600 },
+    breakpoint: { max: 3000, min: 1440 },
     items: 1,
   },
   tablet: {
-    breakpoint: { max: 1600, min: 800 },
+    breakpoint: { max: 1440, min: 768 },
     items: 1,
   },
   mobile: {
-    breakpoint: { max: 800, min: 0 },
+    breakpoint: { max: 768, min: 0 },
     items: 1,
   },
 };
@@ -35,7 +35,9 @@ const NewsList = ({ news }) => (
 );
 
 export const NewsListWithData = () => {
-  const episodesCollection = useFirestore().collection("news");
+  const episodesCollection = useFirestore()
+    .collection("news")
+    .orderBy("date", "desc");
   const { status, data } = useFirestoreCollectionData(episodesCollection);
 
   //'loading' | 'error' | 'success'

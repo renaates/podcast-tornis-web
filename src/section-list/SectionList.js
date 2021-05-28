@@ -1,30 +1,45 @@
 import React from "react";
+import { useFirestore, useFirestoreCollectionData } from "reactfire";
 import { Section } from "../section/Section";
 import { EpisodeListWithData } from "../episode-list/EpisodeList";
 import { PersonListWithData } from "../person-list/PersonList";
 import { NewsListWithData } from "../news-list/NewsList";
 import { Landing } from "../landing/Landing";
 import { About } from "../about/About";
+import { Bazars } from "../bazars/Bazars";
 import { Form } from "../form/Form";
 
 // newest episode spotify
+let NewestEpisodeData = () => {
+  const episodeCollection = useFirestore()
+    .collection("episodes")
+    .orderBy("number", "desc")
+    .limit(1);
+  // const { status, data } = useFirestoreCollectionData(episodeCollection);
+
+  // if (status === "error") {
+  //   return "Notika kļūme";
+  // }
+
+  // if (status === "loading") {
+  //   return "Ielādējam datus, uzgaidi";
+  // }
+};
 // let newest = episodes[episodes.length - 1].spotify;
 
 export const SectionList = () => (
   <div>
     <Section id="new">
-      <Landing
-      // spotify={newest}
-      ></Landing>
+      <Landing spotify={NewestEpisodeData}></Landing>
     </Section>
     <Section name="jaunumi" id="jaunumi">
       <NewsListWithData />
     </Section>
     <Section name="epizodes" id="epizodes">
-      <EpisodeListWithData></EpisodeListWithData>
+      <EpisodeListWithData />
     </Section>
     <Section name="par projektu" id="par">
-      <About></About>
+      <About />
     </Section>
     <Section
       id="komanda"
@@ -32,12 +47,9 @@ export const SectionList = () => (
     >
       <PersonListWithData />
     </Section>
-    <Section
-      name="bazars"
-      id="bazars"
-      description='Esi Talsu Valsts ģimnāzijas skolēns un vēlies piedalīties podkāsta "Tornis" rubrikā "Bazars"? Izlasi noteikumus, aizpildi anketu un gaidi atbildi no podkāsta komandas! Vairāk par rubriku "Bazars" vari lasīt šeit.'
-    >
-      <Form></Form>
+    <Section name="bazars" id="bazars">
+      <Form />
+      <Bazars />
     </Section>
   </div>
 );

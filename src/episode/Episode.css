@@ -1,5 +1,5 @@
 .episode-item {
-  padding: 50px 25px 50px 25px;
+  padding: 50px 25px 40px 25px;
   text-align: center;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   border-radius: 30px;
@@ -16,7 +16,6 @@
   overflow: hidden;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  margin-bottom: 15px;
   font-size: 16px;
   line-height: 2.5ex;
 }
@@ -25,7 +24,7 @@
   z-index: 9;
   position: absolute;
   top: 5px;
-  left: 20px;
+  left: 27px;
   font-size: 80px;
   font-weight: 600;
   color: #e6e6e694;
@@ -61,7 +60,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 6ex;
+  height: 7ex;
   margin: 3px 0px 10px 0;
 }
 
@@ -140,6 +139,10 @@
   left: 0px;
 }
 
+.episode-decription.contracted {
+  height: auto;
+}
+
 @media (min-width: 0px) {
   .episode-description.not-contracted {
     -webkit-line-clamp: 10;
@@ -155,12 +158,11 @@
 }
 
 @media (min-width: 1024px) {
+}
+
+@media (min-width: 1440px) {
   .episode-description.not-contracted {
     height: 17.5ex;
     -webkit-line-clamp: 7;
   }
-}
-
-.episode-decription.contracted {
-  height: auto;
 }

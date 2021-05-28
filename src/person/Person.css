@@ -33,6 +33,9 @@
 }
 
 @media (min-width: 1024px) {
+}
+
+@media (min-width: 1440px) {
   .person-item {
     width: calc(100% / 3 - 40px);
   }

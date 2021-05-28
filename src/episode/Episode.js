@@ -11,11 +11,9 @@ export const Episode = ({
   youtube,
   extra,
 }) => {
-  const [isTextChanged, setTextChanged] = useState(false);
   const [isExpanded, setExpanded] = useState(true);
   const toggle = () => {
     setExpanded(!isExpanded);
-    setTextChanged(!isTextChanged);
   };
 
   return (
@@ -23,7 +21,7 @@ export const Episode = ({
       <div>
         {isExpanded ? (
           <div>
-            <img className="rubric-image" src={image} />
+            <img className="rubric-image rubric-image-animation" src={image} />
             <p className="number">{number}</p>
           </div>
         ) : (
@@ -49,11 +47,11 @@ export const Episode = ({
       <div className="details-and-social-media">
         {isExpanded ? (
           <button className="details-button" onClick={toggle}>
-            {isTextChanged ? "MAZĀK" : "VAIRĀK"}
+            VAIRĀK
           </button>
         ) : (
           <button className="details-button contracted" onClick={toggle}>
-            {isTextChanged ? "MAZĀK" : "VAIRĀK"}
+            MAZĀK
           </button>
         )}
 

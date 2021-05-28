@@ -54,6 +54,15 @@ section:nth-child(1) {
   align-items: center;
 }
 
+#bazars .section-content:before {
+  content: "";
+  position: absolute;
+  background-color: white;
+  transform: rotate(45deg);
+  top: 50px;
+  left: -13px;
+}
+
 @media (min-width: 0px) {
   .section-title {
     width: 90%;
@@ -63,6 +72,9 @@ section:nth-child(1) {
   }
   .section-content {
     width: 90%;
+  }
+  #bazars .section-content {
+    flex-direction: column-reverse;
   }
 }
 
@@ -79,6 +91,9 @@ section:nth-child(1) {
 }
 
 @media (min-width: 1024px) {
+}
+
+@media (min-width: 1440px) {
   .section-title {
     width: 57%;
   }
@@ -87,5 +102,9 @@ section:nth-child(1) {
   }
   .section-content {
     width: 57%;
+  }
+  #bazars .section-content {
+    flex-direction: row;
+    align-items: flex-start;
   }
 }

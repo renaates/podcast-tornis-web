@@ -12,7 +12,7 @@ const PersonList = ({ team }) => (
 );
 
 export const PersonListWithData = () => {
-  const teamCollection = useFirestore().collection("team");
+  const teamCollection = useFirestore().collection("team").orderBy("number");
   const { status, data } = useFirestoreCollectionData(teamCollection);
 
   if (status === "error") {

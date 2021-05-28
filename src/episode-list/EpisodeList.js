@@ -1,22 +1,21 @@
 import React from "react";
 import Carousel from "react-multi-carousel";
 import { useFirestore, useFirestoreCollectionData } from "reactfire";
-
 import "react-multi-carousel/lib/styles.css";
 import { Episode } from "../episode/Episode";
 import "./EpisodeList.css";
 
 const responsive = {
   desktop: {
-    breakpoint: { max: 3000, min: 1024 },
+    breakpoint: { max: 3000, min: 1440 },
     items: 3,
   },
   tablet: {
-    breakpoint: { max: 1024, min: 768 },
+    breakpoint: { max: 1440, min: 768 },
     items: 2,
   },
   mobile: {
-    breakpoint: { max: 800, min: 0 },
+    breakpoint: { max: 768, min: 0 },
     items: 1,
   },
 };
@@ -39,7 +38,9 @@ export const EpisodeList = ({ episodes }) => {
 };
 
 export const EpisodeListWithData = () => {
-  const episodeCollection = useFirestore().collection("episodes");
+  const episodeCollection = useFirestore()
+    .collection("episodes")
+    .orderBy("number", "desc");
   const { status, data } = useFirestoreCollectionData(episodeCollection);
 
   if (status === "error") {
