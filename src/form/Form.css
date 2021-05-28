@@ -179,6 +179,9 @@ input[label] .rules-btn {
   input[name="participant-name"] {
     width: calc(100% - 10px);
   }
+  .half {
+    width: 100%;
+  }
   .input {
     width: 100%;
     height: 50px;
