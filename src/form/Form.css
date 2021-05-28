@@ -125,12 +125,12 @@ form {
   filter: opacity(0.7);
 }
 
-/* input:-webkit-autofill,
+input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
   box-shadow: 0 0 0 30px #f9f9f9 inset !important;
-} */
+}
 
 input[label] .rules-btn {
   cursor: pointer;
@@ -138,6 +138,22 @@ input[label] .rules-btn {
 
 .first-row .input-container {
   margin-top: 7px;
+}
+
+.submit-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.checkbox-container {
+  flex-direction: row;
+  margin-bottom: 15px;
+}
+
+.agree-to-rules {
+  margin-left: 6px;
 }
 
 @media (min-width: 0px) {
@@ -203,7 +219,7 @@ input[label] .rules-btn {
     margin-right: 20px;
   }
   .half {
-    width: 50%;
+    width: 100%;
   }
   .small {
     margin-left: 10px;

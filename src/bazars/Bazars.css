@@ -1,12 +1,105 @@
+.bazars-title-container {
+  cursor: pointer;
+  padding: 0.6rem 1.2rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.2s;
+  border: 2px solid #e88073;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+}
+
+.bazars-title {
+  font-weight: normal;
+}
+
+.bazars-title-container:nth-child(1) {
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+
+.bazars-title-container:nth-child(2) {
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+.bazars-expand-btns {
+  display: flex;
+  justify-content: space-around;
+}
+
+.bazars-title-container:hover {
+  background-color: #e88073;
+  color: #fff;
+  filter: brightness(1.1);
+}
+
+.colored {
+  background-color: #e88073;
+  color: #fff;
+}
+
+.colored .bazars-title {
+  color: white;
+}
+
+.bazars-expand-btns {
+  margin-top: 7px;
+}
+
+.about-bazars li:nth-child(1) {
+  margin-top: 10px;
+}
+
+.about-bazars ol,
+.about-bazars li {
+  width: 100%;
+  list-style-position: inside;
+  margin: 0;
+  padding: 0;
+}
+
+.about-bazars ol {
+  text-align: justify;
+  counter-reset: item;
+}
+.about-bazars ol li {
+  display: block;
+}
+.about-bazars ol li:before {
+  content: counter(item) ". ";
+  counter-increment: item;
+  font-weight: bold;
+}
+
+.about-bazars li:not(:last-child) {
+  margin-bottom: 10px;
+}
+
 @media (min-width: 0px) {
   .about-bazars {
     width: 100%;
-    font-size: 18px;
+    font-size: 16px;
     margin-bottom: 70px;
+  }
+  .bazars-expand-btns {
+    height: 50px;
   }
 }
 
 @media (min-width: 768px) {
+  .bazars-expand-btns {
+    height: 45px;
+  }
 }
 
 @media (min-width: 1024px) {

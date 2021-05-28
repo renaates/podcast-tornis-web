@@ -105,11 +105,19 @@ export const Form = () => {
         autocomplete="off"
         required
       />
-      <input type="checkbox" name="terms" value="check" id="agree" required />{" "}
-      <span className="agree-to-rules">Esmu iepazinies ar noteikumiem</span>
-      <br />
-      <br />
-      <input type="submit" value="SŪTĪT" className="btn" />
+      <div className="submit-container">
+        <div className="checkbox-container">
+          <input
+            type="checkbox"
+            name="terms"
+            value="check"
+            id="agree"
+            required
+          />{" "}
+          <span className="agree-to-rules">Esmu iepazinies ar noteikumiem</span>
+        </div>
+        <input type="submit" value="SŪTĪT" className="btn" />
+      </div>
     </form>
   );
 };

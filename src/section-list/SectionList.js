@@ -29,7 +29,14 @@ export const SectionList = () => (
     >
       <PersonListWithData />
     </Section>
-    <Section name="bazars" id="bazars">
+    <Section
+      name="bazars"
+      id="bazars"
+      description='        Esi Talsu Valsts ģimnāzijas skolēns un vēlies piedalīties podkāsta
+        "Tornis" rubrikā "Bazars"? Izlasi noteikumus, aizpildi anketu un gaidi
+        atbildi no podkāsta komandas! Vairāk par rubriku "Bazars" vari lasīt
+        zemāk.'
+    >
       <Form />
       <Bazars />
     </Section>
