@@ -22,10 +22,10 @@
 .bm-burger-button {
   top: 36px;
   right: 36px;
-  left: auto;
-  position: fixed;
   width: 36px;
   height: 30px;
+  position: fixed;
+  background-color: #fef6f4;
 }
 
 .bm-item-list {
@@ -83,6 +83,20 @@
 
 .bm-overlay {
   background: rgba(0, 0, 0, 0.3);
+}
+
+@media (min-width: 0px) {
+  .bm-burger-button {
+    top: 20px;
+    right: 20px;
+  }
+}
+
+@media (min-width: 768px) {
+  .bm-burger-button {
+    top: 36px;
+    right: 36px;
+  }
 }
 
 @media (min-width: 1024px) {
