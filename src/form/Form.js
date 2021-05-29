@@ -1,100 +1,68 @@
-import React from "react";
+import { useForm } from "react-hook-form";
+import { useFirestore } from "reactfire";
+
 import "./Form.css";
 import { Input } from "./Input";
+import { ParticipantInput } from "./ParticipantInput";
 
 export const Form = () => {
+  const episodeCollection = useFirestore().collection("submissions");
+
+  const { register, handleSubmit, formState, reset } = useForm();
+
+  const onSubmit = (data) => {
+    // set "Saving..."
+    episodeCollection.add({ ...data, timestamp: Date.now() });
+    // if error
+    //    show error message
+    // if suceess
+    //    clear and set a happy message
+    reset();
+  };
+
   return (
-    <form className="form" action="#">
+    <form className="form" action="#" onSubmit={handleSubmit(onSubmit)}>
       <div className="row first-row">
         <Input
           label="PILNS VĀRDS"
           containerClassName="input-container half name-container"
           type="text"
-          name="name"
           className="input"
           autocomplete="off"
-          required
+          {...register("name", {
+            required: { value: true, message: "Norādi savu pilnu vārdu" },
+          })}
+          error={formState.errors.name}
         />
 
         <Input
           label="E-PASTS"
           containerClassName="input-container half"
           type="email"
-          name="email"
           className="input"
-          required
+          {...register("email", {
+            required: { value: true, message: "Norādi savu e-pastu" },
+          })}
+          error={formState.errors.email}
         />
       </div>
-      {/* First */}
       <div className="participants">
-        <div className="row participant">
-          <Input
-            label="1. DALĪBNIEKA PILNS VĀRDS"
-            containerClassName="input-container half"
-            type="text"
-            name="participant-name"
-            className="input"
-            autocomplete="off"
-            required
-          />
-          <Input
-            label="KLASE"
-            containerClassName="input-container small"
-            type="number"
-            name="participant-class"
-            min="9"
-            max="12"
-            className="input"
-            autocomplete="off"
-            required
-          />
-        </div>
-        {/* Second */}
-        <div className="row participant">
-          <Input
-            label="2. DALĪBNIEKA PILNS VĀRDS"
-            containerClassName="input-container half"
-            type="text"
-            name="participant-name"
-            className="input"
-            autocomplete="off"
-            required
-          />
-          <Input
-            label="KLASE"
-            containerClassName="input-container small"
-            type="number"
-            name="participant-class"
-            min="9"
-            max="12"
-            className="input"
-            autocomplete="off"
-            required
-          />
-        </div>
-        {/* Third */}
-        <div className="row participant">
-          <Input
-            label="3. DALĪBNIEKA PILNS VĀRDS"
-            containerClassName="input-container half"
-            type="text"
-            name="participant-name"
-            className="input"
-            autocomplete="off"
-            required
-          />
-          <Input
-            label="KLASE"
-            containerClassName="input-container small"
-            type="number"
-            name="participant-class"
-            min="9"
-            max="12"
-            className="input"
-            autocomplete="off"
-            required
-          />
-        </div>
+        <ParticipantInput
+          register={register}
+          number={0}
+          error={formState.errors.participants?.[0]}
+          required
+        />
+        <ParticipantInput
+          register={register}
+          number={1}
+          error={formState.errors.participants?.[1]}
+        />
+        <ParticipantInput
+          register={register}
+          number={2}
+          error={formState.errors.participants?.[2]}
+        />
       </div>
       {/* Info */}
       <Input
@@ -104,16 +72,20 @@ export const Form = () => {
         name="message"
         className="input full"
         autocomplete="off"
-        required
+        {...register("message", {
+          required: { value: true, message: "Norādi savu ideju" },
+        })}
+        error={formState.errors.message}
       />
       <div className="submit-container">
         <div className="checkbox-container">
           <input
             type="checkbox"
             name="terms"
-            value="check"
             id="agree"
-            required
+            {...register("terms", {
+              required: { value: true, message: "Piekrīti noteikumiem" },
+            })}
           />{" "}
           <span className="agree-to-rules">Esmu iepazinies ar noteikumiem</span>
         </div>
