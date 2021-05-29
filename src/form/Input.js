@@ -5,6 +5,7 @@ export const Input = ({
   component: Component = "input",
   label,
   containerClassName,
+  error,
   ...rest
 }) => {
   const [isFocused, setFocused] = useState(false);
@@ -30,6 +31,7 @@ export const Input = ({
       ) : (
         <span>{label}</span>
       )}
+      {error?.message}
     </div>
   );
 };
