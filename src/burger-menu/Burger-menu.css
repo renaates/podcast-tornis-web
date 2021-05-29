@@ -1,0 +1,86 @@
+.menu-item {
+  text-transform: uppercase;
+}
+
+.bm-menu-wrap {
+  position: fixed;
+  height: 50% !important;
+  width: 100% !important;
+  z-index: 2100;
+}
+
+.bm-menu {
+  display: flex;
+  height: 100%;
+  z-index: 2100;
+  justify-content: center !important;
+  align-items: center !important;
+  padding: 30px;
+  background: #f9f6f7;
+  font-size: 1.15em;
+}
+
+.bm-burger-button {
+  top: 36px;
+  right: 36px;
+  left: auto;
+  position: fixed;
+  width: 36px;
+  height: 30px;
+}
+
+.bm-item-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.8em;
+  width: 35%;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.bm-item {
+  text-decoration: none;
+  width: 100%;
+  font-size: 24px;
+  color: #272727;
+  border-bottom: 1px solid #e3e3e3;
+  border-top: 1px solid #e3e3e3;
+  justify-content: center;
+}
+
+/* Color/shape of burger icon bars */
+.bm-burger-bars {
+  background: #e88073;
+}
+
+/* Position and sizing of clickable cross button */
+.bm-cross-button {
+  height: 24px;
+  width: 24px;
+  position: fixed;
+  top: 36px !important;
+  right: 36px !important;
+  left: auto !important;
+  width: 36px !important;
+  height: 36px !important;
+}
+
+#react-burger-cross-btn {
+  width: 36px !important;
+  height: 36px !important;
+}
+
+.bm-cross {
+  background: #e88073;
+}
+
+.bm-overlay {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+@media (min-width: 1024px) {
+  #outer-container {
+    display: none;
+  }
+}
