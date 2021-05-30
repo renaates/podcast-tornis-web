@@ -26,7 +26,7 @@ const NewsList = ({ news }) => (
   <Carousel
     containerClass="news-container"
     responsive={responsive}
-    removeArrowOnDeviceType={["mobile"]}
+    // removeArrowOnDeviceType={["mobile"]}
   >
     {news.map((article, index) => (
       <News {...article} key={index}></News>

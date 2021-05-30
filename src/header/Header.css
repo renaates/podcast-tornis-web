@@ -40,11 +40,12 @@
   .header {
     display: none;
   }
+  .header-wave {
+  }
 }
 
 @media (min-width: 768px) {
-  .header-content {
-    width: 80%;
+  .header-wave {
   }
 }
 
@@ -52,10 +53,27 @@
   .header {
     display: flex;
   }
+  .header-content {
+    width: 80%;
+  }
+  .header-wave {
+  }
 }
 
 @media (min-width: 1440px) {
   .header-content {
-    width: 57%;
+    width: 70%;
+  }
+  .header-wave {
+    top: -24px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .header-content {
+    width: 60%;
+  }
+  .header-wave {
+    top: -45px;
   }
 }

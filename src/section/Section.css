@@ -31,21 +31,39 @@
 
 section:nth-child(1) {
   background-image: url("bg.jpg");
-  background-position-y: -170px;
   background-repeat: no-repeat;
+  background-position-x: center;
   background-attachment: fixed;
   background-size: cover;
+}
+
+@media (min-width: 0px) {
+}
+
+@media (min-width: 768px) {
+  section:nth-child(1) {
+    background-position-y: -300px;
+  }
+}
+
+@media (min-width: 1024px) {
+}
+
+@media (min-width: 1440px) {
+  section:nth-child(1) {
+    background-position-y: -100px;
+  }
+}
+
+@media (min-width: 1920px) {
+  section:nth-child(1) {
+    background-position-y: -170px;
+  }
 }
 
 .section-title {
   font-size: 22px;
   margin-bottom: 30px;
-}
-
-.section-description {
-  margin-bottom: 50px;
-  font-size: 18px;
-  text-align: justify;
 }
 
 .section-content {
@@ -66,9 +84,14 @@ section:nth-child(1) {
 @media (min-width: 0px) {
   .section-title {
     width: 90%;
+    font-size: 18px;
+    margin-bottom: 20px;
   }
   .section-description {
     width: 90%;
+    margin-bottom: 20px;
+    font-size: 16px;
+    text-align: justify;
   }
   .section-content {
     width: 90%;
@@ -80,31 +103,58 @@ section:nth-child(1) {
 
 @media (min-width: 768px) {
   .section-title {
-    width: 80%;
+    width: 90%;
+    font-size: 22px;
+    margin-bottom: 25px;
   }
   .section-description {
-    width: 80%;
+    width: 90%;
+    margin-bottom: 25px;
+    font-size: 18px;
+    text-align: justify;
   }
   .section-content {
-    width: 80%;
+    width: 90%;
   }
 }
 
 @media (min-width: 1024px) {
+  .section-title {
+    width: 80%;
+  }
+  .section-description {
+    width: 80%;
+    margin-bottom: 50px;
+  }
+  .section-content {
+    width: 80%;
+  }
 }
 
 @media (min-width: 1440px) {
   .section-title {
-    width: 57%;
+    width: 70%;
   }
   .section-description {
-    width: 57%;
+    width: 70%;
   }
   .section-content {
-    width: 57%;
+    width: 70%;
   }
   #bazars .section-content {
     flex-direction: row;
     align-items: flex-start;
+  }
+}
+
+@media (min-width: 1920px) {
+  .section-title {
+    width: 60%;
+  }
+  .section-description {
+    width: 60%;
+  }
+  .section-content {
+    width: 60%;
   }
 }

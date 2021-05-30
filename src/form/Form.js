@@ -28,7 +28,7 @@ export const Form = () => {
           containerClassName="input-container half name-container"
           type="text"
           className="input"
-          autocomplete="off"
+          autoComplete="off"
           {...register("name", {
             required: { value: true, message: "Norādi savu pilnu vārdu" },
           })}
@@ -50,17 +50,20 @@ export const Form = () => {
         <ParticipantInput
           register={register}
           number={0}
+          autoComplete="off"
           error={formState.errors.participants?.[0]}
           required
         />
         <ParticipantInput
           register={register}
           number={1}
+          autoComplete="off"
           error={formState.errors.participants?.[1]}
         />
         <ParticipantInput
           register={register}
           number={2}
+          autoComplete="off"
           error={formState.errors.participants?.[2]}
         />
       </div>
@@ -71,7 +74,7 @@ export const Form = () => {
         containerClassName="input-container textarea"
         name="message"
         className="input full"
-        autocomplete="off"
+        autoComplete="off"
         {...register("message", {
           required: { value: true, message: "Norādi savu ideju" },
         })}

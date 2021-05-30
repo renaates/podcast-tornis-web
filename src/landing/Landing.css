@@ -94,15 +94,24 @@
 
 @media (min-width: 768px) {
   .landing-container {
-    width: 80%;
+    width: 90%;
   }
 }
 
 @media (min-width: 1024px) {
+  .landing-container {
+    width: 80%;
+  }
 }
 
 @media (min-width: 1440px) {
   .landing-container {
-    width: 57%;
+    width: 70%;
+  }
+}
+
+@media (min-width: 1920px) {
+  .landing-container {
+    width: 60%;
   }
 }

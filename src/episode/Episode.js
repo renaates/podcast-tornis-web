@@ -46,7 +46,7 @@ export const Episode = ({
 
       <div className="details-and-social-media">
         {isExpanded ? (
-          <button className="details-button" onClick={toggle}>
+          <button className="details-button not-contracted" onClick={toggle}>
             VAIRĀK
           </button>
         ) : (

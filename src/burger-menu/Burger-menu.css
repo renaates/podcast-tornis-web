@@ -25,7 +25,6 @@
   width: 36px;
   height: 30px;
   position: fixed;
-  background-color: #fef6f4;
 }
 
 .bm-item-list {
@@ -55,15 +54,11 @@
   border-bottom: 1px solid #e3e3e3;
 }
 
-/* Color/shape of burger icon bars */
 .bm-burger-bars {
   background: #e88073;
 }
 
-/* Position and sizing of clickable cross button */
 .bm-cross-button {
-  height: 24px;
-  width: 24px;
   position: fixed;
   top: 36px !important;
   right: 36px !important;
@@ -90,6 +85,13 @@
     top: 20px;
     right: 20px;
   }
+  .bm-cross-button {
+    top: 20px !important;
+    right: 20px !important;
+  }
+  /* #outer-container {
+    width: 90%;
+  } */
 }
 
 @media (min-width: 768px) {
@@ -97,6 +99,13 @@
     top: 36px;
     right: 36px;
   }
+  .bm-cross-button {
+    top: 36px !important;
+    right: 36px !important;
+  }
+  /* #outer-container {
+    width: 80%;
+  } */
 }
 
 @media (min-width: 1024px) {

@@ -12,7 +12,6 @@ export const ParticipantInput = ({
       containerClassName="input-container half"
       type="text"
       className="input"
-      autocomplete="off"
       {...register(`participants.${number}.name`, {
         required: {
           value: required,
@@ -27,20 +26,19 @@ export const ParticipantInput = ({
       type="number"
       name="participant-class"
       className="input"
-      autocomplete="off"
       {...register(`participants.${number}.grade`, {
         required: {
           value: required,
           message: "Norādi dalībnieka klasi",
         },
-        min: {
-          value: 9,
-          message: "Dalībnieka klasei jābūt no 9 līdz 12",
-        },
-        max: {
-          value: 12,
-          message: "Dalībnieka klasei jābūt no 9 līdz 12",
-        },
+        //   min: {
+        //     value: 9,
+        //     message: "Dalībnieka klasei jābūt no 9 līdz 12",
+        //   },
+        //   max: {
+        //     value: 12,
+        //     message: "Dalībnieka klasei jābūt no 9 līdz 12",
+        //   },
       })}
       error={error?.grade}
     />
