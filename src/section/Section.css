@@ -30,18 +30,26 @@
 }
 
 section:nth-child(1) {
-  background-image: url("bg.jpg");
+  background-image: url("bg.jpg") !important;
   background-repeat: no-repeat;
   background-position-x: center;
   background-attachment: fixed;
   background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
 }
 
 @media (min-width: 0px) {
+  section:nth-child(1) {
+    /* background: url("bg.jpg"); */
+  }
 }
 
 @media (min-width: 768px) {
   section:nth-child(1) {
+    background: none !important;
+    background-image: url("bg.jpg") !important;
     background-position-y: -300px;
   }
 }
