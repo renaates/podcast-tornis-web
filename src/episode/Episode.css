@@ -133,7 +133,7 @@
 @media (min-width: 0px) {
   .episode-description.not-contracted {
     -webkit-line-clamp: 8;
-    height: 20ex;
+    height: 19.5ex;
   }
   .episode-item {
     height: 550px;
@@ -146,7 +146,7 @@
 
 @media (min-width: 768px) {
   .episode-description.not-contracted {
-    height: 20ex;
+    height: 19.5ex;
     -webkit-line-clamp: 8;
   }
   .episode-description {
@@ -168,7 +168,7 @@
 
 @media (min-width: 1440px) {
   .episode-description.not-contracted {
-    height: 17.5ex;
+    height: 17ex;
     -webkit-line-clamp: 7;
   }
   .episode-item {
@@ -178,7 +178,7 @@
 
 @media (min-width: 1920px) {
   .episode-description.not-contracted {
-    height: 17.5ex;
+    height: 17ex;
     -webkit-line-clamp: 7;
   }
   .episode-item {

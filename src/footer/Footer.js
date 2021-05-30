@@ -4,9 +4,8 @@ import "./Footer.css";
 export const Footer = () => {
   return (
     <div className="footer">
-      <div className="footer-content">
+      <div className="footer-1-container">
         <div className="footer-1">
-          <div className="footer-socials-container">
             <div className="footer-socials footer-socials-spotify">
               <a
                 href="https://open.spotify.com/show/3s4gxp3CKEi7TDAd0w21S6?si=4iwwjQSkSHuP5RIXN-teLw"
@@ -49,7 +48,7 @@ export const Footer = () => {
                 <img src="../images/social-media/gmail.svg" alt="gmail" />
                 <span>Gmail</span>
               </a>
-            </div>
+          </div>
           </div>
         </div>
         <div className="footer-2">
@@ -60,9 +59,8 @@ export const Footer = () => {
           >
             Renāte Spirga
           </a>
-        </div>
       </div>
-      <img className="footer-wave" src="../images/footer.svg" />
+      {/* <img className="footer-wave" src="../images/footer.svg" /> */}
     </div>
   );
 };

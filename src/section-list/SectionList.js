@@ -1,5 +1,4 @@
 import React from "react";
-// import { useFirestore, useFirestoreCollectionData } from "reactfire";
 import { Section } from "../section/Section";
 import { EpisodeListWithData } from "../episode-list/EpisodeList";
 import { PersonListWithData } from "../person-list/PersonList";
@@ -32,7 +31,7 @@ export const SectionList = () => (
     <Section
       name="bazars"
       id="bazars"
-      description='        Esi Talsu Valsts ģimnāzijas skolēns un vēlies piedalīties podkāsta
+      description='Esi Talsu Valsts ģimnāzijas skolēns un vēlies piedalīties podkāsta
         "Tornis" rubrikā "Bazars"? Izlasi noteikumus, aizpildi anketu un gaidi
         atbildi no podkāsta komandas! Vairāk par rubriku "Bazars" vari lasīt
         zemāk.'

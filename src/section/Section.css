@@ -30,7 +30,7 @@
 }
 
 section:nth-child(1) {
-  background-image: url("bg.jpg") !important;
+  background-image: url("bg.jpg");
   background-repeat: no-repeat;
   background-position-x: center;
   background-attachment: fixed;
@@ -42,14 +42,11 @@ section:nth-child(1) {
 
 @media (min-width: 0px) {
   section:nth-child(1) {
-    /* background: url("bg.jpg"); */
   }
 }
 
 @media (min-width: 768px) {
   section:nth-child(1) {
-    background: none !important;
-    background-image: url("bg.jpg") !important;
     background-position-y: -300px;
   }
 }

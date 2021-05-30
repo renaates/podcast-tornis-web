@@ -1,7 +1,9 @@
 import React from "react";
+import { NewestEpisodeWithData } from "../newest-episode/NewestEpisode";
 import "./Landing.css";
 
-export const Landing = ({ spotify }) => {
+export const Landing = () => {
+
   return (
     <div>
       <div className="landing-container">
@@ -9,9 +11,7 @@ export const Landing = ({ spotify }) => {
           <p>PODKĀSTS</p>
           <p>TORNIS</p>
         </div>
-        <a href={spotify} target="blank">
-          <button className="landing-button">JAUNĀKĀ EPIZODE</button>
-        </a>
+        <NewestEpisodeWithData/>
       </div>
       <div className="wrap">
         <img src="../images/wave.svg" className="wave" alt="wave" />
