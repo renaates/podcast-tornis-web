@@ -4,7 +4,6 @@ import "./Episode.css";
 export const Episode = ({
   image,
   number,
-  rubric,
   title,
   description,
   spotify,
@@ -28,8 +27,7 @@ export const Episode = ({
           <p className="number contracted-number">{number}</p>
         )}
       </div>
-      <div className="rubric-and-title">
-        <h3 className="rubric">{rubric}:</h3>
+      <div className="title-container">
         <h3 className="title">{title}</h3>
       </div>
       {isExpanded ? (

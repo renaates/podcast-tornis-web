@@ -9,9 +9,7 @@
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
-  /* DELETE */
-  overflow-y: hidden;
-  /* DELETE */
+  /* overflow-y: hidden; MAINTENANCE */
 }
 
 body {

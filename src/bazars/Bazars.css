@@ -66,7 +66,7 @@
 }
 
 .about-bazars ol {
-  text-align: justify;
+  /* text-align: justify; */
   counter-reset: item;
 }
 .about-bazars ol li {

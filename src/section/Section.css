@@ -41,7 +41,7 @@ section:nth-child(1) {
 @media (min-width: 0px) {
   section:nth-child(1) {
     background-position-y: 0px;
-    background-position-x: -500px;
+    background-position-x: center;
   }
 }
 
@@ -49,13 +49,11 @@ section:nth-child(1) {
   section:nth-child(1) {
     background-position-y: -300px;
     background-position-x: center;
+    background-attachment: fixed;
   }
 }
 
 @media (min-width: 1024px) {
-  section:nth-child(1) {
-    background-attachment: fixed;
-  }
 }
 
 @media (min-width: 1440px) {
