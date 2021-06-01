@@ -32,8 +32,6 @@
 section:nth-child(1) {
   background-image: url("bg.jpg");
   background-repeat: no-repeat;
-  background-position-x: center;
-  background-attachment: fixed;
   background-size: cover;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -42,16 +40,22 @@ section:nth-child(1) {
 
 @media (min-width: 0px) {
   section:nth-child(1) {
+    background-position-y: 0px;
+    background-position-x: -500px;
   }
 }
 
 @media (min-width: 768px) {
   section:nth-child(1) {
     background-position-y: -300px;
+    background-position-x: center;
   }
 }
 
 @media (min-width: 1024px) {
+  section:nth-child(1) {
+    background-attachment: fixed;
+  }
 }
 
 @media (min-width: 1440px) {

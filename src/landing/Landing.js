@@ -3,7 +3,6 @@ import { NewestEpisodeWithData } from "../newest-episode/NewestEpisode";
 import "./Landing.css";
 
 export const Landing = () => {
-
   return (
     <div>
       <div className="landing-container">
@@ -11,7 +10,7 @@ export const Landing = () => {
           <p>PODKĀSTS</p>
           <p>TORNIS</p>
         </div>
-        <NewestEpisodeWithData/>
+        <NewestEpisodeWithData />
       </div>
       <div className="wrap">
         <img src="../images/wave.svg" className="wave" alt="wave" />

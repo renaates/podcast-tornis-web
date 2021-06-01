@@ -1,0 +1,63 @@
+.landing-button {
+  background-color: transparent;
+  border: 2px solid #fdf6f5;
+  border-radius: 15px;
+  cursor: pointer;
+  color: #fdf6f5;
+}
+
+.landing-button:hover {
+  background-color: #fdf6f5;
+  color: #e88073;
+}
+
+.landing-button:hover:after {
+  opacity: 1;
+  right: 10px;
+}
+
+.landing-button {
+  text-align: center;
+  transition: all 0.5s;
+}
+
+.landing-button {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.landing-button:after {
+  content: "»";
+  position: absolute;
+  opacity: 0;
+  top: 14px;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.landing-button:hover {
+  padding-right: 24px;
+  padding-left: 8px;
+}
+
+@media (min-width: 0px) {
+}
+
+@media (min-width: 768px) {
+}
+
+@media (min-width: 1024px) {
+}
+
+@media (min-width: 1440px) {
+}
+
+@media (min-width: 1920px) {
+  .landing-button {
+    width: 300px;
+    height: 70px;
+    font-size: 24px;
+  }
+}
