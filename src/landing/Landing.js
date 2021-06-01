@@ -6,11 +6,11 @@ export const Landing = () => {
   return (
     <div>
       <div className="landing-container">
-        {/*  DELETE */}
+        {/* <!-- DELETE --> */}
         <div className="warning">
           <span>LAPA VĒL ATRODAS IZSTRĀDES STADIJĀ</span>
         </div>
-        {/* ^ DELETE ^ */}
+        {/* <!-- ^ DELETE ^ --> */}
         <div className="landing-title">
           <p>PODKĀSTS</p>
           <p>TORNIS</p>
