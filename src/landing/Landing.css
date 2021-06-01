@@ -3,6 +3,21 @@
   position: relative;
 }
 
+/* DELETE */
+
+.warning {
+  font-size: 32px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 50px;
+}
+
+.warning span {
+  background-color: #fdf6f5;
+  color: red;
+}
+
 .wave {
   position: absolute;
   width: 100%;
@@ -11,6 +26,8 @@
   left: 0;
   margin: auto;
 }
+
+/* ^ DELETE ^ */
 
 .landing-container {
   height: 800px;
