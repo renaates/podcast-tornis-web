@@ -54,13 +54,13 @@ export const Episode = ({
         )}
 
         <div className="social-media-container">
-          <a href={spotify}>
+          <a href={spotify} target="#">
             <img
               src="../images/social-media/spotify.svg"
               className="social-media spotify"
             />
           </a>
-          <a href={youtube}>
+          <a href={youtube} target="#">
             <img
               src="../images/social-media/youtube.svg"
               className="social-media youtube"
