@@ -10,7 +10,7 @@ html {
   scroll-behavior: smooth;
   overflow-x: hidden;
   /* MAINTENANCE */
-  overflow-y: hidden; 
+  /* overflow-y: hidden;  */
 }
 
 body {
