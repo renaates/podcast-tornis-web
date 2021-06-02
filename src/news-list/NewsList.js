@@ -2,6 +2,7 @@ import React from "react";
 import { useFirestore, useFirestoreCollectionData } from "reactfire";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import Loader from "react-loader-spinner";
 import { DateTime } from "luxon";
 
 import { News } from "../news/News";
@@ -47,7 +48,15 @@ export const NewsListWithData = () => {
   }
 
   if (status === "loading") {
-    return "Ielādējam datus, uzgaidi";
+    return (
+      <Loader
+        type="TailSpin"
+        color="#e88073"
+        height={400}
+        width={100}
+        timeout={3000}
+      />
+    );
   }
 
   return (

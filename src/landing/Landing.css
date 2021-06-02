@@ -7,7 +7,7 @@
   position: absolute;
   width: 100%;
   height: auto;
-  bottom: 0;
+  bottom: -1px;
   left: 0;
   margin: auto;
 }
@@ -69,19 +69,22 @@
 
 @media (min-width: 1024px) {
   .landing-container {
-    width: 80%;
+    width: 70%;
+    height: 520px;
   }
 }
 
 @media (min-width: 1440px) {
   .landing-container {
     width: 70%;
+    height: 666px;
   }
 }
 
 @media (min-width: 1920px) {
   .landing-container {
     width: 60%;
+    height: 800px;
   }
 }
 

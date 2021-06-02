@@ -24,7 +24,6 @@
 }
 
 .header-item {
-  font-size: 20px;
   text-decoration: none;
   letter-spacing: 1px;
   transition: all 0.2s ease-in-out;
@@ -40,6 +39,9 @@
   .header {
     display: none;
   }
+  .header-item {
+    font-size: 20px;
+  }
   .header-wave {
   }
 }
@@ -54,9 +56,13 @@
     display: flex;
   }
   .header-content {
-    width: 80%;
+    width: 90%;
   }
   .header-wave {
+    top: -15px;
+  }
+  .header-item {
+    font-size: 18px;
   }
 }
 
@@ -66,6 +72,9 @@
   }
   .header-wave {
     top: -24px;
+  }
+  .header-item {
+    font-size: 20px;
   }
 }
 

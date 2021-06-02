@@ -1,5 +1,6 @@
 import React from "react";
 import { useFirestore, useFirestoreCollectionData } from "reactfire";
+import Loader from "react-loader-spinner";
 import "./NewestEpisode.css";
 
 const NewestEpisode = ({ spotify }) => {
@@ -24,7 +25,15 @@ export const NewestEpisodeWithData = () => {
   }
 
   if (status === "loading") {
-    return "Ielādējam datus, uzgaidi";
+    return (
+      <Loader
+        type="audio"
+        color="#fff7f5"
+        height={70}
+        width={300}
+        timeout={3000}
+      />
+    );
   }
 
   console.log(newestEpisodeFromCollection);

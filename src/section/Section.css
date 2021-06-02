@@ -38,36 +38,6 @@ section:nth-child(1) {
   -o-background-size: cover;
 }
 
-@media (min-width: 0px) {
-  section:nth-child(1) {
-    background-position-y: 0px;
-    background-position-x: center;
-  }
-}
-
-@media (min-width: 768px) {
-  section:nth-child(1) {
-    background-position-y: -300px;
-    background-position-x: center;
-    background-attachment: fixed;
-  }
-}
-
-@media (min-width: 1024px) {
-}
-
-@media (min-width: 1440px) {
-  section:nth-child(1) {
-    background-position-y: -100px;
-  }
-}
-
-@media (min-width: 1920px) {
-  section:nth-child(1) {
-    background-position-y: -170px;
-  }
-}
-
 .section-title {
   font-size: 22px;
   margin-bottom: 30px;
@@ -110,40 +80,24 @@ section:nth-child(1) {
 
 @media (min-width: 768px) {
   .section-title {
-    width: 90%;
     font-size: 22px;
     margin-bottom: 25px;
   }
   .section-description {
-    width: 90%;
     margin-bottom: 25px;
     font-size: 18px;
-    text-align: justify;
-  }
-  .section-content {
-    width: 90%;
   }
 }
 
 @media (min-width: 1024px) {
   .section-title {
-    width: 80%;
+    width: 70%;
+    font-size: 18px;
   }
   .section-description {
-    width: 80%;
+    width: 70%;
     margin-bottom: 50px;
-  }
-  .section-content {
-    width: 80%;
-  }
-}
-
-@media (min-width: 1440px) {
-  .section-title {
-    width: 70%;
-  }
-  .section-description {
-    width: 70%;
+    font-size: 16px;
   }
   .section-content {
     width: 70%;
@@ -151,6 +105,20 @@ section:nth-child(1) {
   #bazars .section-content {
     flex-direction: row;
     align-items: flex-start;
+  }
+}
+
+@media (min-width: 1440px) {
+  .section-title {
+    width: 70%;
+    font-size: 22px;
+  }
+  .section-description {
+    width: 70%;
+    font-size: 18px;
+  }
+  .section-content {
+    width: 70%;
   }
 }
 
@@ -163,5 +131,40 @@ section:nth-child(1) {
   }
   .section-content {
     width: 60%;
+  }
+}
+
+@media (min-width: 0px) {
+  section:nth-child(1) {
+    background-position-y: 0px;
+    background-position-x: center;
+  }
+}
+
+@media (min-width: 768px) {
+  section:nth-child(1) {
+    background-position-y: -300px;
+    background-position-x: center;
+    background-attachment: fixed;
+  }
+}
+
+@media (min-width: 1024px) {
+  section:nth-child(1) {
+    background-position-y: -135px;
+    background-position-x: center;
+    background-attachment: fixed;
+  }
+}
+
+@media (min-width: 1440px) {
+  section:nth-child(1) {
+    background-position-y: -100px;
+  }
+}
+
+@media (min-width: 1920px) {
+  section:nth-child(1) {
+    background-position-y: -170px;
   }
 }

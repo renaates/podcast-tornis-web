@@ -43,13 +43,21 @@
 @media (min-width: 1024px) {
   .about-container {
     flex-direction: row;
+    font-size: 16px;
   }
   .about-image {
-    width: 150px;
-    height: auto;
+    height: 125px;
+    width: auto;
     margin: 0 20px 0 0;
   }
 }
 
 @media (min-width: 1440px) {
+  .about-container {
+    font-size: 18px;
+  }
+  .about-image {
+    height: 150px;
+    width: auto;
+  }
 }

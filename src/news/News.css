@@ -6,7 +6,6 @@
 
   display: flex;
   flex-direction: row;
-  height: 400px;
 }
 
 .news-info-container {
@@ -116,6 +115,27 @@
 
 @media (min-width: 1024px) {
   .news-text {
+    font-size: 14px;
+  }
+  .news-title {
+    font-size: 18px;
+    margin: 10px 0 15px 0;
+  }
+  .news-date {
+    font-size: 14px;
+  }
+  .news-item {
+    flex-direction: row;
+    height: 345px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .news-item {
+    flex-direction: row;
+    height: 400px;
+  }
+  .news-text {
     font-size: 16px;
   }
   .news-title {
@@ -125,7 +145,4 @@
   .news-date {
     font-size: 16px;
   }
-}
-
-@media (min-width: 1440px) {
 }

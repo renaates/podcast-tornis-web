@@ -1,6 +1,7 @@
 import React from "react";
 import { useFirestore, useFirestoreCollectionData } from "reactfire";
 import { Person } from "../person/Person";
+import Loader from "react-loader-spinner";
 import "./PersonList.css";
 
 const PersonList = ({ team }) => (
@@ -20,7 +21,15 @@ export const PersonListWithData = () => {
   }
 
   if (status === "loading") {
-    return "Ielādējam datus, uzgaidi";
+    return (
+      <Loader
+        type="TailSpin"
+        color="#e88073"
+        height={100}
+        width={100}
+        timeout={3000}
+      />
+    );
   }
 
   return <PersonList team={data.map((person) => ({ ...person }))} />;

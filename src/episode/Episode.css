@@ -21,7 +21,6 @@
   position: absolute;
   top: 5px;
   left: 27px;
-  font-size: 80px;
   font-weight: 600;
   color: #ececec94;
 }
@@ -37,7 +36,6 @@
 }
 
 .title {
-  font-size: 18px;
   color: #1e1e1e;
   line-height: 2ex;
 }
@@ -68,7 +66,6 @@
   justify-content: center;
   align-items: center;
   position: relative;
-  font-size: 20px;
   font-weight: 400;
   text-decoration: none;
   letter-spacing: 1px;
@@ -136,6 +133,15 @@
   .rubric-image {
     width: 175px;
   }
+  .episode-item .number {
+    font-size: 80px;
+  }
+  .title {
+    font-size: 18px;
+  }
+  .details-button {
+    font-size: 20px;
+  }
 }
 
 @media (min-width: 768px) {
@@ -164,6 +170,26 @@
     color: #fff;
     filter: brightness(1.1);
   }
+  .rubric-image {
+    width: 100px;
+  }
+  .episode-item .number {
+    font-size: 68px;
+  }
+
+  .episode-description {
+    font-size: 14px;
+    line-height: 2.5ex;
+  }
+  .episode-item {
+    height: 455px;
+  }
+  .title {
+    font-size: 16px;
+  }
+  .details-button {
+    font-size: 16px;
+  }
 }
 
 @media (min-width: 1440px) {
@@ -172,7 +198,23 @@
     -webkit-line-clamp: 7;
   }
   .episode-item {
-    height: 490px;
+    height: 545px;
+  }
+  .episode-description {
+    font-size: 16px;
+    line-height: 2.5ex;
+  }
+  .rubric-image {
+    width: 175px;
+  }
+  .episode-item .number {
+    font-size: 80px;
+  }
+  .title {
+    font-size: 18px;
+  }
+  .details-button {
+    font-size: 20px;
   }
 }
 
@@ -182,9 +224,19 @@
     -webkit-line-clamp: 8;
   }
   .episode-item {
-    height: 568px;
+    height: 570px;
   }
   .rubric-image {
     width: 175px;
+  }
+}
+
+@media (min-width: 2560px) {
+  .episode-item {
+    height: 575px;
+  }
+  .episode-description.not-contracted {
+    height: 20ex;
+    -webkit-line-clamp: 8;
   }
 }
