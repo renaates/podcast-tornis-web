@@ -29,7 +29,7 @@ export const ParticipantInput = ({
       {...register(`participants.${number}.grade`, {
         required: {
           value: required,
-          message: "Norādi dalībnieka klasi",
+          message: "Norādi klasi",
         },
         min: {
           value: 7,

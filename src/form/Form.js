@@ -13,17 +13,11 @@ export const Form = () => {
   const onSubmit = (data) => {
     // set "Saving..."
     episodeCollection.add({ ...data, timestamp: Date.now() });
+
     // if error
     //    show error message
     // if suceess
     //    clear and set a happy message
-    if (data === "error") {
-      return "Notika kļūda, mēģiniet vēlreiz";
-    }
-
-    if (data === "success") {
-      return "Jūsu pieteikums tika iesūtīts!";
-    }
 
     reset();
   };
