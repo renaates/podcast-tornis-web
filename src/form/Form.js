@@ -1,40 +1,58 @@
 import { useForm } from "react-hook-form";
 import { useFirestore } from "reactfire";
+import emailjs from "emailjs-com";
 
 import "./Form.css";
 import { Input } from "./Input";
 import { ParticipantInput } from "./ParticipantInput";
 
 export const Form = () => {
-  const episodeCollection = useFirestore().collection("submissions");
+  function sendEmail(data) {
+    data.preventDefault();
 
-  const { register, handleSubmit, formState, reset } = useForm();
+    emailjs
+      .sendForm(
+        "service_hsqp6v9",
+        "template_imnfikk",
+        data.target,
+        "user_8yi0e1bB0jqUFzn48R9nH"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+  }
 
-  const onSubmit = (data) => {
-    // set "Saving..."
-    episodeCollection.add({ ...data, timestamp: Date.now() });
+  const { register, formState, reset } = useForm();
 
-    // if error
-    //    show error message
-    // if suceess
-    //    clear and set a happy message
-
-    reset();
-  };
+  // const onSubmit = (data) => {
+  //   // set "Saving..."
+  //   episodeCollection.add({ ...data, timestamp: Date.now() });
+  //   // if error
+  //   //    show error message
+  //   // if suceess
+  //   //    clear and set a happy message
+  //   reset();
+  // };
 
   return (
-    <form className="form" action="#" onSubmit={handleSubmit(onSubmit)}>
+    <form className="form" action="#" onSubmit={sendEmail}>
       <div className="row first-row">
         <Input
           label="PILNS VĀRDS"
           containerClassName="input-container half name-container"
           type="text"
           className="input"
+          name="name"
           autoComplete="off"
-          {...register("name", {
-            required: { value: true, message: "Norādi savu pilnu vārdu" },
-          })}
-          error={formState.errors.name}
+          // {...register("userName", {
+          //   required: { value: true, message: "Norādi savu pilnu vārdu" },
+          // })}
+          // error={formState.errors.userName}
         />
 
         <Input
@@ -42,30 +60,28 @@ export const Form = () => {
           containerClassName="input-container half"
           type="email"
           className="input"
-          {...register("email", {
-            required: { value: true, message: "Norādi savu e-pastu" },
-          })}
-          error={formState.errors.email}
+          name="email"
+          // {...register("userEmail", {
+          //   required: { value: true, message: "Norādi savu e-pastu" },
+          // })}
+          // error={formState.errors.userEmail}
         />
       </div>
       <div className="participants">
         <ParticipantInput
           register={register}
           number={0}
-          autoComplete="off"
           error={formState.errors.participants?.[0]}
-          required
+          required="true"
         />
         <ParticipantInput
           register={register}
           number={1}
-          autoComplete="off"
           error={formState.errors.participants?.[1]}
         />
         <ParticipantInput
           register={register}
           number={2}
-          autoComplete="off"
           error={formState.errors.participants?.[2]}
         />
       </div>
@@ -74,13 +90,13 @@ export const Form = () => {
         component="textarea"
         label="IDEJAS APRAKSTS UN PAPILDUS INFORMĀCIJA"
         containerClassName="input-container textarea"
-        name="message"
         className="input full"
         autoComplete="off"
         {...register("message", {
           required: { value: true, message: "Norādi savu ideju" },
         })}
         error={formState.errors.message}
+        name="message"
       />
       <div className="submit-container">
         <div className="checkbox-container">
