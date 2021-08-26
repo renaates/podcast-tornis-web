@@ -26,7 +26,7 @@ export const Form = () => {
   }
 
   // const { register, formState, reset } = useForm();
-  const { register, formState, handleSubmit } = useForm();
+  const { register, formState } = useForm();
 
   // const onSubmit = (data) => {
   //   // set "Saving..."
