@@ -8,7 +8,6 @@ import { ParticipantInput } from "./ParticipantInput";
 export const Form = () => {
   function sendEmail(data) {
     data.preventDefault();
-
     emailjs
       .sendForm(
         "service_hsqp6v9",
@@ -27,7 +26,7 @@ export const Form = () => {
   }
 
   // const { register, formState, reset } = useForm();
-  const { register, formState } = useForm();
+  const { register, formState, handleSubmit } = useForm();
 
   // const onSubmit = (data) => {
   //   // set "Saving..."
