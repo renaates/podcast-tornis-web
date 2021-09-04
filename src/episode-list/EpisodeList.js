@@ -28,7 +28,6 @@ export const EpisodeList = ({ episodes }) => {
         responsive={responsive}
         infinite={true}
         containerClass="episode-container"
-        // removeArrowOnDeviceType={["mobile"]}
       >
         {episodes.map((episode, index) => (
           <Episode {...episode} key={index}></Episode>

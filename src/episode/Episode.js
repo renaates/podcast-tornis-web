@@ -36,9 +36,6 @@ export const Episode = ({
         <div className="episode-description contracted">
           {description}
           <br></br>
-          {/* <a className="extra" href={extra}>
-            PIELIKUMI
-          </a> */}
         </div>
       )}
 

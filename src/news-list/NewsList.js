@@ -27,7 +27,6 @@ const NewsList = ({ news }) => (
   <Carousel
     containerClass="news-container"
     responsive={responsive}
-    // removeArrowOnDeviceType={["mobile"]}
   >
     {news.map((article, index) => (
       <News {...article} key={index}></News>
@@ -40,8 +39,6 @@ export const NewsListWithData = () => {
     .collection("news")
     .orderBy("date", "desc");
   const { status, data } = useFirestoreCollectionData(episodesCollection);
-
-  //'loading' | 'error' | 'success'
 
   if (status === "error") {
     return "Notika kļūme";

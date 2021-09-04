@@ -53,21 +53,6 @@
 @media (min-width: 768px) {
   .landing-button {
     width: 300px;
-    height: 70px;
-    font-size: 24px;
-  }
-}
-
-@media (min-width: 1024px) {
-}
-
-@media (min-width: 1440px) {
-}
-
-@media (min-width: 1920px) {
-  .landing-button {
-    width: 300px;
-    height: 70px;
     font-size: 24px;
   }
 }

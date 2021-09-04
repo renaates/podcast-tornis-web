@@ -9,20 +9,10 @@
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
-  /* MAINTENANCE */
-  /* overflow-y: hidden;  */
-}
-
-body {
-  scroll-behavior: smooth;
 }
 
 .underline {
   text-decoration: underline;
-}
-
-.line {
-  color: #e88073;
 }
 
 .hide {

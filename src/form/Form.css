@@ -73,17 +73,6 @@ textarea.input {
 
 /* form */
 
-.participants {
-  display: flex;
-  flex-direction: column;
-}
-
-form {
-  z-index: 10;
-  overflow: hidden;
-  position: relative;
-}
-
 .input-container {
   position: relative;
 }
@@ -150,7 +139,6 @@ input[label] .rules-btn {
 }
 
 .checkbox-container {
-  flex-direction: row;
   margin-bottom: 15px;
 }
 
@@ -199,7 +187,6 @@ input[label] .rules-btn {
 
 @media (min-width: 768px) {
   .form {
-    width: 100%;
     margin-right: 15px;
   }
   .first-row {
@@ -221,9 +208,6 @@ input[label] .rules-btn {
     margin-left: 20px;
     width: 25%;
   }
-}
-
-@media (min-width: 1024px) {
 }
 
 @media (min-width: 1440px) {

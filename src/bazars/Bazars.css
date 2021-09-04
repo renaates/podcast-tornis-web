@@ -1,18 +1,14 @@
 .bazars-title-container {
+  width: 100%;
   cursor: pointer;
   padding: 0.6rem 1.2rem;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  width: 100%;
   display: flex;
-  justify-content: center;
-  align-items: center;
   transition: 0.2s;
-  display: flex;
   justify-content: center;
   align-items: center;
-  width: 50%;
 }
 
 .bazars-title {
@@ -58,14 +54,10 @@
 
 .about-bazars ol,
 .about-bazars li {
-  width: 100%;
-  list-style-position: inside;
-  margin: 0;
   padding: 0;
 }
 
 .about-bazars ol {
-  /* text-align: justify; */
   counter-reset: item;
 }
 .about-bazars ol li {
@@ -100,7 +92,6 @@
     height: 45px;
   }
   .about-bazars {
-    width: 100%;
     font-size: 18px;
     margin-bottom: 35px;
   }

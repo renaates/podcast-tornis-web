@@ -19,6 +19,10 @@
   justify-content: center;
 }
 
+[data-status="false"] {
+  opacity: 0.6;
+}
+
 @media (min-width: 0px) {
   .person-item {
     width: 100%;
@@ -29,10 +33,6 @@
   .person-item {
     border-radius: 45px;
   }
-}
-
-[data-status="false"] {
-  opacity: 0.6;
 }
 
 @media (min-width: 768px) {

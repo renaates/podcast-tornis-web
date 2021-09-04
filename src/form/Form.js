@@ -84,7 +84,6 @@ export const Form = () => {
           error={formState.errors.participants?.[2]}
         />
       </div>
-      {/* Info */}
       <Input
         component="textarea"
         label="IDEJAS APRAKSTS UN PAPILDUS INFORMĀCIJA"
