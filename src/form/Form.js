@@ -10,10 +10,8 @@ export const Form = () => {
     data.preventDefault();
     emailjs
       .sendForm(
-        "service_hsqp6v9",
-        "template_imnfikk",
-        data.target,
-        "user_8yi0e1bB0jqUFzn48R9nH"
+        "service_gwe32l2",
+        "template_duxn6p7",
       )
       .then(
         (result) => {
