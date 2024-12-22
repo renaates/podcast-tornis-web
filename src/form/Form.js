@@ -93,7 +93,7 @@ export const Form = () => {
               required: { value: true, message: "Piekrīti noteikumiem!" },
             })}
           />{" "}
-          <span className="agree-to-rules">Esmu iepazinies ar noteikumiem</span>
+          <label className="agree-to-rules" htmlFor="agree" >Esmu iepazinies ar noteikumiem</label>
         </div>
 
         <div className="form-status-message">

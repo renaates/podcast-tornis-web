@@ -9,10 +9,17 @@
   transition: 0.2s;
   justify-content: center;
   align-items: center;
+  margin-top: 5px;
+  margin-bottom: -3px;
+}
+
+.bazars-title-container a {
+  vertical-align: middle;
 }
 
 .bazars-title {
   font-weight: normal;
+  margin: 0;
 }
 
 .bazars-title-container:nth-child(1) {

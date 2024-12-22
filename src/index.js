@@ -1,5 +1,10 @@
 import ReactDOM from "react-dom";
-import { App } from "./app/App";
+import App from "./app/App";
+import { FirebaseProvider } from "./FirebaseProvider";
 
-// sections
-ReactDOM.render(<App />, document.querySelector("[data-container='root']"));
+ReactDOM.render(
+  <FirebaseProvider>
+    <App />
+  </FirebaseProvider>,
+  document.querySelector("[data-container='root']")
+);

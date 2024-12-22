@@ -9,12 +9,16 @@ import { News } from "../news/News";
 import "./NewsList.css";
 
 export const responsive = {
-  desktop: {
-    breakpoint: { max: 3000, min: 1440 },
+  desktopLarge: {
+    breakpoint: { max: 3000, min: 1901 },
+    items: 1,
+  },
+  desktopSmall: {
+    breakpoint: { max: 1900, min: 1025 },
     items: 1,
   },
   tablet: {
-    breakpoint: { max: 1440, min: 768 },
+    breakpoint: { max: 1024, min: 769 },
     items: 1,
   },
   mobile: {
@@ -26,6 +30,7 @@ export const responsive = {
 const NewsList = ({ news }) => (
   <Carousel
     containerClass="news-container"
+    removeArrowOnDeviceType={["tablet", "mobile"]}
     responsive={responsive}
   >
     {news.map((article, index) => (

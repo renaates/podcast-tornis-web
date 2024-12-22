@@ -7,12 +7,16 @@ import Loader from "react-loader-spinner";
 import "./EpisodeList.css";
 
 const responsive = {
-  desktop: {
-    breakpoint: { max: 3000, min: 1024 },
+  desktopLarge: {
+    breakpoint: { max: 3000, min: 1901 },
     items: 3,
   },
+  desktopSmall: {
+    breakpoint: { max: 1900, min: 1025 },
+    items: 2,
+  },
   tablet: {
-    breakpoint: { max: 1023, min: 769 },
+    breakpoint: { max: 1024, min: 769 },
     items: 2,
   },
   mobile: {
@@ -28,6 +32,7 @@ export const EpisodeList = ({ episodes }) => {
         responsive={responsive}
         infinite={true}
         containerClass="episode-container"
+        removeArrowOnDeviceType={["tablet", "mobile"]}
       >
         {episodes.map((episode, index) => (
           <Episode {...episode} key={index}></Episode>

@@ -8,8 +8,10 @@
 
 .person-image {
   width: 40%;
-  height: 40%;
+  aspect-ratio: 1 / 1;
+  max-height: 100%;
   border-radius: inherit;
+  object-fit: cover;
 }
 
 .person-description {
@@ -26,12 +28,10 @@
 @media (min-width: 0px) {
   .person-item {
     width: 100%;
+    border-radius: 45px;
   }
   .person-description {
     font-size: 16px;
-  }
-  .person-item {
-    border-radius: 45px;
   }
 }
 
@@ -53,11 +53,9 @@
 @media (min-width: 1440px) {
   .person-item {
     width: calc(100% / 3 - 40px);
+    border-radius: 45px;
   }
   .person-description {
     font-size: 16px;
-  }
-  .person-item {
-    border-radius: 45px;
   }
 }
