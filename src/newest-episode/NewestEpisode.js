@@ -27,7 +27,7 @@ export const NewestEpisodeWithData = () => {
   if (status === "loading") {
     return (
       <Loader
-        type="audio"
+        type="Audio"
         color="#fff7f5"
         height={70}
         width={300}
@@ -35,7 +35,5 @@ export const NewestEpisodeWithData = () => {
       />
     );
   }
-
-  console.log(newestEpisodeFromCollection);
   return <NewestEpisode spotify={data[0].spotify} />;
 };

@@ -111,6 +111,29 @@ textarea.input {
   -webkit-appearance: none;
 }
 
+.input.error {
+  border: 1px solid rgba(184, 102, 102, 0.4);
+}
+
+.error-messages {
+  font-size: 0.85rem;
+  margin-top: -10px;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.error-messages p {
+  color: rgb(184, 102, 102);
+  margin: 5px 0;
+}
+
+.success-message {
+  margin-top: -5px;
+  margin-bottom: 15px;
+  font-size: 0.85rem;
+  color: rgb(72, 165, 84);
+}
+
 .spanLabel {
   background-color: white;
   filter: opacity(0.7);
@@ -179,6 +202,7 @@ input[label] .rules-btn {
   .small {
     width: 35%;
     margin-left: 10px;
+    padding-left: 10px;
   }
   .input-container {
     margin: 10px 0;
@@ -193,7 +217,7 @@ input[label] .rules-btn {
     flex-direction: row;
   }
   .name-container {
-    margin-right: 20px;
+    margin-right: 10px;
   }
   .half {
     width: 100%;
@@ -205,7 +229,6 @@ input[label] .rules-btn {
     height: 45px;
   }
   .small {
-    margin-left: 20px;
     width: 25%;
   }
 }
@@ -215,7 +238,6 @@ input[label] .rules-btn {
     width: 100%;
   }
   .small {
-    margin-left: 20px;
     width: 28%;
   }
   .row {

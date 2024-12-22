@@ -1,49 +1,36 @@
-import { Input } from "./Input";
+import { InputWrapper } from "./InputWrapper";
 
-export const ParticipantInput = ({
-  number,
-  error,
-  register,
-  required = false,
-}) => (
+export const ParticipantInput = ({ number, error, register = false }) => (
   <div className="row participant">
-    <Input
+    <InputWrapper
       label={`${number + 1}. DALĪBNIEKA PILNS VĀRDS`}
       containerClassName="input-container half"
       type="text"
       autoComplete="off"
-      name={`name${number.toString()}`}
+      name={`pname${number.toString()}`}
       className="input"
-      // {...register(`participants.${number}name`, {
-      //   required: {
-      //     value: required,
-      //     message: "Norādi dalībnieka pilnu vārdu",
-      //   },
-      // })}
-      // error={error?.name}
+      {...register(`participants-${number}-pname`, {
+        maxLength: {
+          value: 30, 
+          message: "Dalībnieka vārda garumam jābūt <30 simboli!"
+        },
+      })}
+      error={error?.pname}
     />
-    <Input
+    <InputWrapper
       label="KLASE"
       containerClassName="input-container small"
-      type="number"
+      type="text"
       autoComplete="off"
-      name={`class${number.toString()}`}
+      name={`grade${number.toString()}`}
       className="input"
-      // {...register(`participants.${number}.grade`, {
-      //   required: {
-      //     value: required,
-      //     message: "Norādi klasi",
-      //   },
-      //   min: {
-      //     value: 7,
-      //     message: "Dalībnieka klasei jābūt no 7 līdz 12",
-      //   },
-      //   max: {
-      //     value: 12,
-      //     message: "Dalībnieka klasei jābūt no 7 līdz 12",
-      //   },
-      // })}
-      // error={error?.grade}
+      {...register(`participants-${number}-grade`, {
+        maxLength: {
+          value: 4, 
+          message: "Klases lauka garumam jābūt <4 simboli!"
+        },
+      })}
+      error={error?.grade}
     />
   </div>
 );

@@ -78,7 +78,7 @@ export const Footer = () => {
           href="https://www.linkedin.com/in/renate-spirga/"
           target="#"
         >
-          2021 © <span>Renāte Spirga</span>
+          2021-2024 © <span>Renāte Spirga</span>
         </a>
       </div>
     </div>

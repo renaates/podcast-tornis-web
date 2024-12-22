@@ -1,97 +1,86 @@
 import { useForm } from "react-hook-form";
-import emailjs from "emailjs-com";
+import React, { useRef, useState } from "react";
+import emailjs from "@emailjs/browser";
 
 import "./Form.css";
-import { Input } from "./Input";
+import { InputWrapper } from "./InputWrapper";
 import { ParticipantInput } from "./ParticipantInput";
 
 export const Form = () => {
-  function sendEmail(data) {
-    data.preventDefault();
-    emailjs
-      .sendForm(
-        "service_gwe32l2",
-        "template_duxn6p7",
-      )
-      .then(
-        (result) => {
-          console.log(result.text);
-        },
-        (error) => {
-          console.log(error.text);
-        }
-      );
-  }
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
-  // const { register, formState, reset } = useForm();
-  const { register, formState } = useForm();
+  const [isSubmittedSuccessfully, setIsSubmittedSuccessfully] = useState(false);
+  const [isSubmitFailed, setIsSubmitFailed] = useState(false);
 
-  // const onSubmit = (data) => {
-  //   // set "Saving..."
-  //   episodeCollection.add({ ...data, timestamp: Date.now() });
-  //   // if error
-  //   //    show error message
-  //   // if suceess
-  //   //    clear and set a happy message
-  //   reset();
-  // };
+  const form = useRef();
+
+  const sendEmail = (data) => {
+    emailjs.sendForm("service_hsqp6v9", "template_imnfikk", form.current, "5I1UfmKFc8gTcYJoB").then(
+      (response) => {
+        setIsSubmittedSuccessfully(true); 
+        setIsSubmitFailed(false);  
+      },
+      (error) => {
+        setIsSubmittedSuccessfully(false); 
+        setIsSubmitFailed(true); 
+      }
+    );
+  };
+
+  const onSubmit = (data) => {
+    sendEmail(data);
+  };
 
   return (
-    <form className="form" action="#" onSubmit={sendEmail}>
+    <form className="form" id="form" ref={form} onSubmit={handleSubmit(onSubmit)}>
       <div className="row first-row">
-        <Input
-          label="PILNS VĀRDS"
+        <InputWrapper
+          label="KONTAKTPERSONA"
           containerClassName="input-container half name-container"
           type="text"
           className="input"
           name="name"
           autoComplete="off"
-          // {...register("userName", {
-          //   required: { value: true, message: "Norādi savu pilnu vārdu" },
-          // })}
-          // error={formState.errors.userName}
+          {...register("userName", {
+            required: { value: true, message: "Norādi kontaktpersonu!" },
+            maxLength: { value: 30, message: "Kontaktpersonas garumam jābūt <30 simboli!" },
+          })}
+          error={errors.userName}
         />
 
-        <Input
-          label="E-PASTS"
+        <InputWrapper
+          label="KĀ AR TEVI SAZINĀTIES?"
           containerClassName="input-container half"
-          type="email"
+          type="text"
           className="input"
-          name="email"
-          // {...register("userEmail", {
-          //   required: { value: true, message: "Norādi savu e-pastu" },
-          // })}
-          // error={formState.errors.userEmail}
+          name="contact"
+          {...register("userContact", {
+            required: { value: true, message: "Norādi saziņas veidu!" },
+            maxLength: { value: 40, message: "Saziņas veida garumam jābūt <40 simboli!" },
+          })}
+          error={errors.userContact}
         />
       </div>
       <div className="participants">
-        <ParticipantInput
-          register={register}
-          number={0}
-          error={formState.errors.participants?.[0]}
-          required="true"
-        />
-        <ParticipantInput
-          register={register}
-          number={1}
-          error={formState.errors.participants?.[1]}
-        />
-        <ParticipantInput
-          register={register}
-          number={2}
-          error={formState.errors.participants?.[2]}
-        />
+        <ParticipantInput register={register} number={0} error={errors.participants?.[0]} />
+        <ParticipantInput register={register} number={1} error={errors.participants?.[1]} />
+        <ParticipantInput register={register} number={2} error={errors.participants?.[2]} />
       </div>
-      <Input
+      <InputWrapper
         component="textarea"
         label="IDEJAS APRAKSTS UN PAPILDUS INFORMĀCIJA"
         containerClassName="input-container textarea"
         className="input full"
         autoComplete="off"
         {...register("message", {
-          required: { value: true, message: "Norādi savu ideju" },
+          required: { value: true, message: "Norādi ideju!" },
+          maxLength: { value: 500, message: "Idejas garumam jābūt <500 simboli!" },
         })}
-        error={formState.errors.message}
+        error={errors.message}
         name="message"
       />
       <div className="submit-container">
@@ -101,10 +90,38 @@ export const Form = () => {
             name="terms"
             id="agree"
             {...register("terms", {
-              required: { value: true, message: "Piekrīti noteikumiem" },
+              required: { value: true, message: "Piekrīti noteikumiem!" },
             })}
           />{" "}
           <span className="agree-to-rules">Esmu iepazinies ar noteikumiem</span>
+        </div>
+
+        <div className="form-status-message">
+          {isSubmittedSuccessfully && (
+            <p className="success-message">Pieteikums veiksmīgi nosūtīts!</p>
+          )}
+          {isSubmitFailed && (
+            <p className="error-message">Kaut kas nogāja. Lūdzu, mēģiniet vēlreiz vēlāk vai sazinieties ar kādu no atbildīgajiem.</p>
+          )}
+        </div>
+
+        <div className="error-messages">
+          {Object.entries(errors).flatMap(([key, value]) => {
+            if (key === "participants" && Array.isArray(value)) {
+              return value.flatMap((participantError, idx) =>
+                Object.entries(participantError || {}).map(([field, err]) => (
+                  <p key={`participant-${idx}-${field}`} className="error-message">
+                    {err.message}
+                  </p>
+                ))
+              );
+            }
+            return (
+              <p key={key} className="error-message">
+                {value.message}
+              </p>
+            );
+          })}
         </div>
         <input type="submit" value="SŪTĪT" className="btn" />
       </div>

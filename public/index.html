@@ -5,18 +5,12 @@
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content='Podkāsts "Tornis" ir Talsu Valsts ģimnāzijas skolēnu izstrādāts projekts, mērķis ir veicināt skolēnu radošumu, pilnveidot mediju un komunikācijas prasmes, kā arī dot iespēju gūt pieredzi raidījumu ierakstīšanā un apstrādē.'
-    />
+    <meta name="description" content='Podkāsts "Tornis" ir Talsu Valsts ģimnāzijas skolēnu izstrādāts projekts, mērķis ir veicināt skolēnu radošumu, pilnveidot mediju un komunikācijas prasmes, kā arī dot iespēju gūt pieredzi raidījumu ierakstīšanā un apstrādē.' />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <link rel="stylesheet" href="%PUBLIC_URL%/style.css" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />
     <title>Podkāsts Tornis</title>
   </head>
 
@@ -24,28 +18,12 @@
     <div data-container="root"></div>
   </body>
 
-  <script type="text/javascript"
-        src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js">
-</script>
-<script type="text/javascript">
-   (function(){
-      emailjs.init("user_8yi0e1bB0jqUFzn48R9nH");
-   })();
-</script>
-<script type="text/javascript">
-  window.onload = function() {
-      document.getElementById('contact-form').addEventListener('submit', function(event) {
-          event.preventDefault();
-          // generate a five digit number for the contact_number variable
-          this.contact_number.value = Math.random() * 100000 | 0;
-          // these IDs from the previous steps
-          emailjs.sendForm('contact_service', 'contact_form', this)
-              .then(function() {
-                  console.log('SUCCESS!');
-              }, function(error) {
-                  console.log('FAILED...', error);
-              });
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script type="text/javascript">
+    (function () {
+      emailjs.init({
+        publicKey: "5I1UfmKFc8gTcYJoB",
       });
-  }
-</script>
+    })();
+  </script>
 </html>
