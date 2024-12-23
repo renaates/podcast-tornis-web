@@ -16,9 +16,9 @@ export const NewestEpisodeWithData = () => {
     .collection("episodes")
     .orderBy("number", "desc")
     .limit(1);
-  const { status, data } = useFirestoreCollectionData(
-    newestEpisodeFromCollection
-  );
+    const { status, data } = useFirestoreCollectionData(
+      newestEpisodeFromCollection
+    );
 
   if (status === "error") {
     return "Notika kļūda";

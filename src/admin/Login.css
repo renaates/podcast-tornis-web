@@ -26,7 +26,6 @@
 .login-form {
   display: flex;
   flex-direction: column;
-  gap: 20px;
 }
 
 .input-group {
@@ -34,6 +33,10 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 5px;
+}
+
+.input-group:first-child {
+  margin-bottom: 10px;
 }
 
 input {
@@ -77,4 +80,13 @@ input:focus {
 
 .submit-btn:active {
   background-color: #c06559;
+}
+
+.link-button {
+	padding: 0;
+	margin: 0 !important;
+	color:#9a9292 !important;
+  margin-bottom: 10px !important;
+  background-color: #fff !important;
+  margin-top: 10px !important;
 }

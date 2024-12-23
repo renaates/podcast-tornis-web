@@ -363,11 +363,11 @@ const Admin = () => {
           {/* Episode Form */}
           <form onSubmit={handleAddEpisode} className="admin-form">
             <div>
-              <h3>{editingEpisode === "episode" ? "Rediģēt Epizodi" : "Pievienot epizodi"}</h3>
+              <h3>{editingEpisode ? "Rediģēt Epizodi" : "Pievienot epizodi"}</h3>
               {editingEpisode && (
                 <>
                   <button type="button" onClick={handleExitEditing}>
-                    Iziet no Rediģēšanas
+                    Beigt rediģēt
                   </button>
                   <button type="button" onClick={() => handleDelete(newEpisode.id, "episodes")} className="delete-button">
                     Dzēst
@@ -400,11 +400,11 @@ const Admin = () => {
         <div className="form-container">
           <form onSubmit={handleAddNews} className="admin-form">
             <div>
-              <h3>{editingNews === "news" ? "Rediģēt Jaunumu" : "Pievienot jaunumu"}</h3>
+              <h3>{editingNews ? "Rediģēt jaunumu" : "Pievienot jaunumu"}</h3>
               {editingNews && (
                 <>
                   <button type="button" onClick={handleExitEditing}>
-                    Iziet no Rediģēšanas
+                    Beigt rediģēt
                   </button>
                   <button type="button" onClick={() => handleDelete(newNews.id, "news")} className="delete-button">
                     Dzēst
@@ -428,11 +428,11 @@ const Admin = () => {
         <div className="form-container">
           <form onSubmit={handleAddTeam} className="admin-form">
             <div>
-              <h3>{editingTeam === "team" ? "Rediģēt komandu" : "Pievienot komandu"}</h3>
+              <h3>{editingTeam ? "Rediģēt komandu" : "Pievienot komandu"}</h3>
               {editingTeam && (
                 <>
                   <button type="button" onClick={handleExitEditing}>
-                    Iziet no Rediģēšanas
+                    Beigt rediģēt
                   </button>
                   <button type="button" onClick={() => handleDelete(newTeam.id, "team")} className="delete-button">
                     Dzēst
