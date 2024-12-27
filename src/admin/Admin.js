@@ -51,6 +51,23 @@ const Admin = () => {
   const [editingNews, setEditingNews] = useState(null);
   const [editingTeam, setEditingTeam] = useState(null);
 
+  const [episodeErrors, setEpisodeErrors] = useState({
+    title: "",
+    description: "",
+    url: "",
+  });
+
+  const [newsErrors, setNewsErrors] = useState({
+    title: "",
+    text: "",
+  });
+
+  const [teamErrors, setTeamErrors] = useState({
+    name: "",
+    role: "",
+    number: "",
+  });
+
   useEffect(() => {
     const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
       if (!user) {
@@ -119,7 +136,7 @@ const Admin = () => {
               );
             }
           } catch (error) {
-            console.error("Error fetching data:", error);
+            alert("Sistēmas kļūda: ", error, ". Lūdzu kontaktēties ar lapas pārvaldītāju.");
           }
         };
 
@@ -131,6 +148,33 @@ const Admin = () => {
 
   const handleAddEpisode = async (e) => {
     e.preventDefault();
+
+    // Validation
+    const errors = [];
+
+    if (!newEpisode.title) {
+      errors.title = "Šis lauks ir obligāts!";
+    } else if (newEpisode.title.length > 100) {
+      errors.title = "Nosaukuma garumam jābūt <100 simboli!";
+    }
+
+    if (!newEpisode.description) {
+      errors.description = "Šis lauks ir obligāts!";
+    } else if (newEpisode.description.length > 500) {
+      errors.description = "Apraksta garumam jābūt <500 simboli!";
+    }
+
+    if (!newEpisode.spotify && !newEpisode.youtube) {
+      errors.url = "Ievadi vismaz vienu epizodes URL!";
+    }
+
+    if (Object.keys(errors).length > 0) {
+      setEpisodeErrors(errors);
+      return;
+    }
+
+    setEpisodeErrors({ title: "", description: "", url: "" });
+
     try {
       let imageUrl = newEpisode.image;
       if (uploadingImage && newEpisode.image instanceof File) {
@@ -172,12 +216,35 @@ const Admin = () => {
         youtube: "",
       });
     } catch (error) {
-      console.log("Kļūda: ", error);
+      alert("Sistēmas kļūda: ", error, ". Lūdzu kontaktēties ar lapas pārvaldītāju.");
     }
   };
 
   const handleAddNews = async (e) => {
     e.preventDefault();
+
+    // Validation
+    const errors = [];
+
+    if (!newNews.title) {
+      errors.title = "Šis lauks ir obligāts!";
+    } else if (newNews.title.length > 50) {
+      errors.title = "Nosaukuma garumam jābūt <50 simboli!";
+    }
+
+    if (!newNews.text) {
+      errors.text = "Šis lauks ir obligāts!";
+    } else if (newNews.text.length > 1000) {
+      errors.text = "Apraksta garumam jābūt <1000 simboli!";
+    }
+
+    if (Object.keys(errors).length > 0) {
+      setNewsErrors(errors);
+      return;
+    }
+
+    setNewsErrors({ title: "", text: "" });
+
     try {
       let imageUrl = newNews.image;
       if (newNews.image instanceof File) {
@@ -222,12 +289,43 @@ const Admin = () => {
       });
       setEditingNews(false);
     } catch (error) {
-      console.error("Kļūda: ", error);
+      alert("Sistēmas kļūda: ", error, ". Lūdzu kontaktēties ar lapas pārvaldītāju.");
     }
   };
 
   const handleAddTeam = async (e) => {
     e.preventDefault();
+
+    // Validation
+    const errors = [];
+
+    if (!newTeam.name) {
+      errors.name = "Šis lauks ir obligāts!";
+    } else if (newTeam.name.length > 30) {
+      errors.name = "Vārda garumam jābūt <30 simboli!";
+    }
+
+    if (!newTeam.image) {
+      errors.image = "Šis lauks ir obligāts!";
+    }
+
+    if (newTeam.role && newTeam.role.length > 60) {
+      errors.role = "Lomas garumam jābūt <60 simboli!";
+    }
+
+    if (isNaN(newTeam.number)) {
+      errors.number = "Ievadiet skaitli!";
+    } else if (newTeam.number >= 100) {
+      errors.number = "Ievadiet skaitli zem 100!";
+    }
+
+    if (Object.keys(errors).length > 0) {
+      setTeamErrors(errors);
+      return;
+    }
+
+    setTeamErrors({ name: "", role: "", image: "", number: "" });
+
     try {
       let imageUrl = newTeam.image;
       if (newTeam.image instanceof File) {
@@ -277,7 +375,7 @@ const Admin = () => {
       });
       setEditingTeam(false);
     } catch (error) {
-      console.error("Kļūda: ", error);
+      alert("Sistēmas kļūda: ", error, ". Lūdzu kontaktēties ar lapas pārvaldītāju.");
     }
   };
 
@@ -336,7 +434,7 @@ const Admin = () => {
         alert("Vienums dzēsts!");
         window.location.reload();
       } catch (error) {
-        console.error("Kļūda: ", error);
+        alert("Sistēmas kļūda: ", error, ". Lūdzu kontaktēties ar lapas pārvaldītāju.");
       }
     }
   };
@@ -346,7 +444,7 @@ const Admin = () => {
       await firebase.auth().signOut();
       navigate("/login");
     } catch (error) {
-      console.error("Error: ", error);
+      alert("Sistēmas kļūda: ", error, ". Lūdzu kontaktēties ar lapas pārvaldītāju.");
     }
   };
 
@@ -376,7 +474,9 @@ const Admin = () => {
               )}
               <input type="number" id="episode-number" disabled value={newEpisode.number} />
               <textarea placeholder="Nosaukums" value={newEpisode.title} onChange={(e) => setNewEpisode({ ...newEpisode, title: e.target.value })} />
+              {episodeErrors.title && <p className="error-message">{episodeErrors.title}</p>}
               <textarea placeholder="Apraksts" className="large-textarea" value={newEpisode.description} onChange={(e) => setNewEpisode({ ...newEpisode, description: e.target.value })} />
+              {episodeErrors.description && <p className="error-message">{episodeErrors.description}</p>}
               <div className="rubric-container">
                 <label>Rubrika:</label>
                 <select value={newEpisode.image} onChange={(e) => setNewEpisode({ ...newEpisode, image: e.target.value })}>
@@ -389,6 +489,7 @@ const Admin = () => {
               </div>
               <input type="text" placeholder="Spotify URL" value={newEpisode.spotify} onChange={(e) => setNewEpisode({ ...newEpisode, spotify: e.target.value })} />
               <input type="text" placeholder="YouTube URL" value={newEpisode.youtube} onChange={(e) => setNewEpisode({ ...newEpisode, youtube: e.target.value })} />
+              {episodeErrors.url && <p className="error-message">{episodeErrors.url}</p>}
             </div>
             <button type="submit" className="submit-button">
               {newEpisode.id ? "Saglabāt" : "Pievienot"}
@@ -412,7 +513,9 @@ const Admin = () => {
                 </>
               )}
               <textarea placeholder="Nosaukums" value={newNews.title} onChange={(e) => setNewNews({ ...newNews, title: e.target.value })} />
+              {newsErrors.title && <p className="error-message">{newsErrors.title}</p>}
               <textarea placeholder="Teksts" className="large-textarea" value={newNews.text} onChange={(e) => setNewNews({ ...newNews, text: e.target.value })} />
+              {newsErrors.text && <p className="error-message">{newsErrors.text}</p>}
               <div className="rubric-container">
                 <label>Attēls:</label>
                 <input type="file" accept="image/*" onChange={(e) => setNewNews({ ...newNews, image: e.target.files[0] })} />
@@ -440,16 +543,20 @@ const Admin = () => {
                 </>
               )}
               <input type="text" placeholder="Vārds" value={newTeam.name} onChange={(e) => setNewTeam({ ...newTeam, name: e.target.value })} />
+              {teamErrors.name && <p className="error-message">{teamErrors.name}</p>}
               <input type="text" placeholder="Loma" value={newTeam.role} onChange={(e) => setNewTeam({ ...newTeam, role: e.target.value })} />
+              {teamErrors.role && <p className="error-message">{teamErrors.role}</p>}
               <div>
                 <label>Attēls:</label>
                 <input type="file" accept="image/*" onChange={(e) => setNewTeam({ ...newTeam, image: e.target.files[0] })} />
+                {teamErrors.image && <p className="error-message">{teamErrors.image}</p>}
               </div>
               <div>
                 <label>
                   Kārtas numurs: <i>(var atstāt 0)</i>
                 </label>
                 <input type="number" placeholder="Numurs" value={newTeam.number} onChange={(e) => setNewTeam({ ...newTeam, number: parseInt(e.target.value, 10) })} />
+                {teamErrors.number && <p className="error-message">{teamErrors.number}</p>}
               </div>
 
               <div className="checkbox-container">
