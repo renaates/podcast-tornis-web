@@ -12,7 +12,7 @@ export const ParticipantInput = ({ number, error, register = false }) => (
       {...register(`participants-${number}-pname`, {
         maxLength: {
           value: 30, 
-          message: "Dalībnieka vārda garumam jābūt <30 simboli!"
+          message: "Nekorekti dati! Dalībnieka vārda garumam jābūt <=30 simboli!"
         },
       })}
       error={error?.pname}
@@ -27,7 +27,7 @@ export const ParticipantInput = ({ number, error, register = false }) => (
       {...register(`participants-${number}-grade`, {
         maxLength: {
           value: 4, 
-          message: "Klases lauka garumam jābūt <4 simboli!"
+          message: "Nekorekti dati! Klases lauka garumam jābūt <=4 simboli!"
         },
       })}
       error={error?.grade}
