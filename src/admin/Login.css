@@ -54,10 +54,14 @@ input:focus {
   border-color: #a89b9b;
 }
 
+.submit-button {
+  width: 100%;
+}
+
 .error-message {
   color: rgb(203, 51, 51);
   font-size: 14px;
-  margin-top: -10px;
+  margin-top: -5px;
   margin-bottom: 20px;
   font-weight: 500;
 }
