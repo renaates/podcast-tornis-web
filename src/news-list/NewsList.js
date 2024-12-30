@@ -6,7 +6,6 @@ import Loader from "react-loader-spinner";
 import { DateTime } from "luxon";
 
 import { News } from "../news/News";
-import "./NewsList.css";
 
 export const responsive = {
   desktopLarge: {
