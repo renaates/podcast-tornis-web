@@ -36,12 +36,16 @@
   }
   .landing-container p:nth-child(1) {
     text-shadow: 1px 0px 20px #8a5151;
-    font-size: 38px;
-    margin-bottom: -27px;
+    font-size: 20px;
+    font-weight: 500;
+    margin-left: 5px;
+    margin-bottom: -20px;
+    margin-top: 120px;
   }
   .landing-container p:nth-child(2) {
     text-shadow: 1px 0px 20px #8a5151;
     font-size: 60px;
+    font-weight: 800;
   }
 }
 
@@ -51,13 +55,17 @@
     height: 800px;
   }
   .landing-container p:nth-child(1) {
-    font-size: 52px;
-    margin-bottom: -35px;
+    font-size: 35px;
+    margin-left: 45px;
+    margin-bottom: -30px;
     text-shadow: none;
+    font-weight: 500;
+    margin-top: 90px;
   }
   .landing-container p:nth-child(2) {
     font-size: 80px;
     text-shadow: none;
+    font-weight: 800;
   }
 }
 
@@ -65,6 +73,9 @@
   .landing-container {
     width: 70%;
     height: 520px;
+  }
+  .landing-container p:nth-child(1) {
+    margin-top: 50px;
   }
 }
 
