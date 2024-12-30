@@ -155,13 +155,13 @@ const Admin = () => {
     if (!newEpisode.title) {
       errors.title = "Šis lauks ir obligāts!";
     } else if (newEpisode.title.length > 100) {
-      errors.title = "Nekorekti dati! Nosaukuma garumam jābūt <=100 simboli!";
+      errors.title = "Nekorekti dati! Nosaukuma garumam jābūt līdz 100 simboliem!";
     }
 
     if (!newEpisode.description) {
       errors.description = "Šis lauks ir obligāts!";
     } else if (newEpisode.description.length > 500) {
-      errors.description = "Nekorekti dati! Apraksta garumam jābūt <=500 simboli!";
+      errors.description = "Nekorekti dati! Apraksta garumam jābūt līdz 500 simboliem!";
     }
 
     if (!newEpisode.spotify && !newEpisode.youtube) {
@@ -229,13 +229,17 @@ const Admin = () => {
     if (!newNews.title) {
       errors.title = "Šis lauks ir obligāts!";
     } else if (newNews.title.length > 50) {
-      errors.title = "Nekorekti dati! Nosaukuma garumam jābūt <=50 simboli!";
+      errors.title = "Nekorekti dati! Nosaukuma garumam jābūt līdz 50 simboliem!";
     }
 
     if (!newNews.text) {
       errors.text = "Šis lauks ir obligāts!";
     } else if (newNews.text.length > 1000) {
-      errors.text = "Nekorekti dati! Apraksta garumam jābūt <=1000 simboli!";
+      errors.text = "Nekorekti dati! Apraksta garumam jābūt līdz 1000 simboliem!";
+    }
+
+    if (newNews.image && !(newNews.image.type === "image/jpeg" || newNews.image.type === "image/jpg" || newNews.image.type === "image/png")) {
+      errors.image = "Nekorekti dati! Attēlam jābūt .jpeg, .jpg vai .png formātā!";
     }
 
     if (Object.keys(errors).length > 0) {
@@ -243,7 +247,7 @@ const Admin = () => {
       return;
     }
 
-    setNewsErrors({ title: "", text: "" });
+    setNewsErrors({ title: "", text: "", image: "" });
 
     try {
       let imageUrl = newNews.image;
@@ -302,15 +306,17 @@ const Admin = () => {
     if (!newTeam.name) {
       errors.name = "Šis lauks ir obligāts!";
     } else if (newTeam.name.length > 30) {
-      errors.name = "Nekorekti dati! Vārda garumam jābūt <=30 simboli!";
+      errors.name = "Nekorekti dati! Vārda garumam jābūt līdz 30 simboliem!";
     }
 
     if (!newTeam.image) {
       errors.image = "Šis lauks ir obligāts!";
+    } else if (newTeam.image && !(newTeam.image.type === "image/jpeg" || newTeam.image.type === "image/jpg" || newTeam.image.type === "image/png")) {
+      errors.image = "Nekorekti dati! Attēlam jābūt .jpeg, .jpg vai .png formātā!";
     }
 
     if (newTeam.role && newTeam.role.length > 60) {
-      errors.role = "Nekorekti dati! Lomas garumam jābūt <=60 simboli!";
+      errors.role = "Nekorekti dati! Lomas garumam jābūt līdz 60 simboliem!";
     }
 
     if (isNaN(newTeam.number)) {
@@ -519,6 +525,7 @@ const Admin = () => {
               <div className="rubric-container">
                 <label>Attēls:</label>
                 <input type="file" accept="image/*" onChange={(e) => setNewNews({ ...newNews, image: e.target.files[0] })} />
+                {newsErrors.image && <p className="error-message">{newsErrors.image}</p>}
               </div>
             </div>
             <button type="submit" className="submit-button">
