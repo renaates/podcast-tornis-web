@@ -15,12 +15,16 @@ export const Episode = ({ image, number, title, description, spotify, youtube })
       </div>
 
       <div className="social-media-container">
-        <a href={spotify} target="#">
-          <img src="../images/social-media/spotify-ep.svg" className="social-media spotify" />
-        </a>
-        <a href={youtube} target="#">
-          <img src="../images/social-media/youtube-ep.svg" className="social-media youtube" />
-        </a>
+      {spotify && (
+          <a href={spotify} target="_blank" rel="noopener noreferrer">
+            <img src="../images/social-media/spotify-ep.svg" className="social-media spotify" />
+          </a>
+        )}
+        {youtube && (
+          <a href={youtube} target="_blank" rel="noopener noreferrer">
+            <img src="../images/social-media/youtube-ep.svg" className="social-media youtube" />
+          </a>
+        )}
       </div>
     </div>
   );
