@@ -164,6 +164,10 @@ const Admin = () => {
       errors.description = "Nekorekti dati! Apraksta garumam jābūt līdz 500 simboliem!";
     }
 
+    if (!newEpisode.image || newEpisode.image === "") {
+      errors.image = "Šis lauks ir obligāts!";
+  }
+
     if (!newEpisode.spotify && !newEpisode.youtube) {
       errors.url = "Vismaz viens no šiem laukiem ir obligāts!";
     }
@@ -482,13 +486,18 @@ const Admin = () => {
               {episodeErrors.description && <p className="error-message">{episodeErrors.description}</p>}
               <div className="rubric-container">
                 <label>Rubrika:</label>
-                <select value={newEpisode.image} onChange={(e) => setNewEpisode({ ...newEpisode, image: e.target.value })}>
+                <select 
+                value={newEpisode.image} 
+                onChange={(e) => setNewEpisode({ ...newEpisode, image: e.target.value })} 
+                style={{color: newEpisode.image === "" ? "#8b8b8b" : "black", }}>
+                <option value="" style={{color: "#8b8b8b"}} disabled>Izvēlies rubriku</option>
                   {episodeImages.map((image, index) => (
                     <option key={index} value={image.url}>
                       {image.name}
                     </option>
                   ))}
                 </select>
+                {episodeErrors.image && <p className="error-message">{episodeErrors.image}</p>}
               </div>
               <input type="text" placeholder="Spotify URL" value={newEpisode.spotify} onChange={(e) => setNewEpisode({ ...newEpisode, spotify: e.target.value })} />
               <input type="text" placeholder="YouTube URL" value={newEpisode.youtube} onChange={(e) => setNewEpisode({ ...newEpisode, youtube: e.target.value })} />

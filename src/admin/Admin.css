@@ -197,3 +197,11 @@ button[type="button"] {
 	font-size: 38px;
 }
 
+.select-placeholder {
+  color: #8b8b8b !important;
+}
+
+.select-placeholder option[value=""] {
+  color: #8b8b8b !important;
+}
+
