@@ -47,7 +47,7 @@ export const Form = () => {
           autoComplete="off"
           {...register("userName", {
             required: { value: true, message: "Šis lauks ir obligāts! Norādi kontaktpersonu!" },
-            maxLength: { value: 30, message: "Nekorekti dati! Kontaktpersonas garumam jābūt <=30 simboli!" },
+            maxLength: { value: 30, message: "Nekorekti dati! Kontaktpersonas garumam jābūt līdz 30 simboliem!" },
           })}
           error={errors.userName}
         />
@@ -60,7 +60,7 @@ export const Form = () => {
           name="contact"
           {...register("userContact", {
             required: { value: true, message: "Šis lauks ir obligāts! Norādi saziņas veidu!" },
-            maxLength: { value: 40, message: "Nekorekti dati! Saziņas veida garumam jābūt <=40 simboli!" },
+            maxLength: { value: 40, message: "Nekorekti dati! Saziņas veida garumam jābūt līdz 40 simboliem!" },
           })}
           error={errors.userContact}
         />
@@ -78,7 +78,7 @@ export const Form = () => {
         autoComplete="off"
         {...register("message", {
           required: { value: true, message: "Šis lauks ir obligāts! Norādi ideju!" },
-          maxLength: { value: 500, message: "Nekorekti dati! Idejas garumam jābūt <=500 simboli!" },
+          maxLength: { value: 500, message: "Nekorekti dati! Idejas garumam jābūt līdz 500 simboliem!" },
         })}
         error={errors.message}
         name="message"
