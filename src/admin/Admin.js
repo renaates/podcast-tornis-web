@@ -136,7 +136,7 @@ const Admin = () => {
               );
             }
           } catch (error) {
-            alert("Sistēmas kļūda: ", error, ". Lūdzu kontaktēties ar lapas pārvaldītāju.");
+            alert("Neparedzēta sistēmas kļūda: ", error, ". Lūdzu mēģiniet vēlreiz vai kontaktējaties ar lapas pārvaldītāju.");
           }
         };
 
@@ -155,17 +155,17 @@ const Admin = () => {
     if (!newEpisode.title) {
       errors.title = "Šis lauks ir obligāts!";
     } else if (newEpisode.title.length > 100) {
-      errors.title = "Nosaukuma garumam jābūt <100 simboli!";
+      errors.title = "Nekorekti dati! Nosaukuma garumam jābūt līdz 100 simboliem!";
     }
 
     if (!newEpisode.description) {
       errors.description = "Šis lauks ir obligāts!";
     } else if (newEpisode.description.length > 500) {
-      errors.description = "Apraksta garumam jābūt <500 simboli!";
+      errors.description = "Nekorekti dati! Apraksta garumam jābūt līdz 500 simboliem!";
     }
 
     if (!newEpisode.spotify && !newEpisode.youtube) {
-      errors.url = "Ievadi vismaz vienu epizodes URL!";
+      errors.url = "Vismaz viens no šiem laukiem ir obligāts!";
     }
 
     if (Object.keys(errors).length > 0) {
@@ -192,7 +192,7 @@ const Admin = () => {
             ...newEpisode,
             image: imageUrl || newEpisode.image,
           });
-        alert("Epizode saglabāta!");
+        alert("Vienums saglabāts!");
         setEditingEpisode(false);
       } else {
         // Add episode
@@ -202,7 +202,7 @@ const Admin = () => {
           number: parseInt(newEpisode.number),
           added: firebase.firestore.FieldValue.serverTimestamp(),
         });
-        alert("Epizode pievienota!");
+        alert("Vienums pievienots!");
       }
 
       window.location.reload();
@@ -216,7 +216,7 @@ const Admin = () => {
         youtube: "",
       });
     } catch (error) {
-      alert("Sistēmas kļūda: ", error, ". Lūdzu kontaktēties ar lapas pārvaldītāju.");
+      alert("Neparedzēta sistēmas kļūda: ", error, ". Lūdzu mēģiniet vēlreiz vai kontaktējaties ar lapas pārvaldītāju.");
     }
   };
 
@@ -229,13 +229,17 @@ const Admin = () => {
     if (!newNews.title) {
       errors.title = "Šis lauks ir obligāts!";
     } else if (newNews.title.length > 50) {
-      errors.title = "Nosaukuma garumam jābūt <50 simboli!";
+      errors.title = "Nekorekti dati! Nosaukuma garumam jābūt līdz 50 simboliem!";
     }
 
     if (!newNews.text) {
       errors.text = "Šis lauks ir obligāts!";
     } else if (newNews.text.length > 1000) {
-      errors.text = "Apraksta garumam jābūt <1000 simboli!";
+      errors.text = "Nekorekti dati! Apraksta garumam jābūt līdz 1000 simboliem!";
+    }
+
+    if (newNews.image && !(newNews.image.type === "image/jpeg" || newNews.image.type === "image/jpg" || newNews.image.type === "image/png")) {
+      errors.image = "Nekorekti dati! Attēlam jābūt .jpeg, .jpg vai .png formātā!";
     }
 
     if (Object.keys(errors).length > 0) {
@@ -243,7 +247,7 @@ const Admin = () => {
       return;
     }
 
-    setNewsErrors({ title: "", text: "" });
+    setNewsErrors({ title: "", text: "", image: "" });
 
     try {
       let imageUrl = newNews.image;
@@ -263,7 +267,7 @@ const Admin = () => {
             text: newNews.text,
             image: imageUrl || newNews.image,
           });
-        alert("Jaunums saglabāts!");
+        alert("Vienums saglabāts!");
       } else {
         // Add news
         const docRef = await db.collection("news").add({
@@ -277,7 +281,7 @@ const Admin = () => {
           id: docRef.id,
         });
 
-        alert("Jaunums pievienots!");
+        alert("Vienums pievienots!");
       }
 
       window.location.reload();
@@ -289,7 +293,7 @@ const Admin = () => {
       });
       setEditingNews(false);
     } catch (error) {
-      alert("Sistēmas kļūda: ", error, ". Lūdzu kontaktēties ar lapas pārvaldītāju.");
+      alert("Neparedzēta sistēmas kļūda: ", error, ". Lūdzu mēģiniet vēlreiz vai kontaktējaties ar lapas pārvaldītāju.");
     }
   };
 
@@ -302,21 +306,23 @@ const Admin = () => {
     if (!newTeam.name) {
       errors.name = "Šis lauks ir obligāts!";
     } else if (newTeam.name.length > 30) {
-      errors.name = "Vārda garumam jābūt <30 simboli!";
+      errors.name = "Nekorekti dati! Vārda garumam jābūt līdz 30 simboliem!";
     }
 
     if (!newTeam.image) {
       errors.image = "Šis lauks ir obligāts!";
+    } else if (newTeam.image && !(newTeam.image.type === "image/jpeg" || newTeam.image.type === "image/jpg" || newTeam.image.type === "image/png")) {
+      errors.image = "Nekorekti dati! Attēlam jābūt .jpeg, .jpg vai .png formātā!";
     }
 
     if (newTeam.role && newTeam.role.length > 60) {
-      errors.role = "Lomas garumam jābūt <60 simboli!";
+      errors.role = "Nekorekti dati! Lomas garumam jābūt līdz 60 simboliem!";
     }
 
     if (isNaN(newTeam.number)) {
-      errors.number = "Ievadiet skaitli!";
+      errors.number = "Nekorekti dati! Ievadiet skaitli!";
     } else if (newTeam.number >= 100) {
-      errors.number = "Ievadiet skaitli zem 100!";
+      errors.number = "Nekorekti dati! Ievadiet skaitli zem 100!";
     }
 
     if (Object.keys(errors).length > 0) {
@@ -346,7 +352,7 @@ const Admin = () => {
             active: newTeam.active,
             number: newTeam.number,
           });
-        alert("Komandas biedrs saglabāts!");
+        alert("Vienums saglabāts!");
       } else {
         // Add team member
         const docRef = await db.collection("team").add({
@@ -361,7 +367,7 @@ const Admin = () => {
           id: docRef.id,
         });
 
-        alert("Komandas biedrs pievienots!");
+        alert("Vienums pievienots!");
       }
 
       window.location.reload();
@@ -375,7 +381,7 @@ const Admin = () => {
       });
       setEditingTeam(false);
     } catch (error) {
-      alert("Sistēmas kļūda: ", error, ". Lūdzu kontaktēties ar lapas pārvaldītāju.");
+      alert("Neparedzēta sistēmas kļūda: ", error, ". Lūdzu mēģiniet vēlreiz vai kontaktējaties ar lapas pārvaldītāju.");
     }
   };
 
@@ -434,7 +440,7 @@ const Admin = () => {
         alert("Vienums dzēsts!");
         window.location.reload();
       } catch (error) {
-        alert("Sistēmas kļūda: ", error, ". Lūdzu kontaktēties ar lapas pārvaldītāju.");
+        alert("Neparedzēta sistēmas kļūda: ", error, ". Lūdzu mēģiniet vēlreiz vai kontaktējaties ar lapas pārvaldītāju.");
       }
     }
   };
@@ -444,7 +450,7 @@ const Admin = () => {
       await firebase.auth().signOut();
       navigate("/login");
     } catch (error) {
-      alert("Sistēmas kļūda: ", error, ". Lūdzu kontaktēties ar lapas pārvaldītāju.");
+      alert("Neparedzēta sistēmas kļūda: ", error, ". Lūdzu mēģiniet vēlreiz vai kontaktējaties ar lapas pārvaldītāju.");
     }
   };
 
@@ -519,6 +525,7 @@ const Admin = () => {
               <div className="rubric-container">
                 <label>Attēls:</label>
                 <input type="file" accept="image/*" onChange={(e) => setNewNews({ ...newNews, image: e.target.files[0] })} />
+                {newsErrors.image && <p className="error-message">{newsErrors.image}</p>}
               </div>
             </div>
             <button type="submit" className="submit-button">

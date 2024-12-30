@@ -46,8 +46,8 @@ export const Form = () => {
           name="name"
           autoComplete="off"
           {...register("userName", {
-            required: { value: true, message: "Norādi kontaktpersonu!" },
-            maxLength: { value: 30, message: "Kontaktpersonas garumam jābūt <30 simboli!" },
+            required: { value: true, message: "Šis lauks ir obligāts! Norādi kontaktpersonu!" },
+            maxLength: { value: 30, message: "Nekorekti dati! Kontaktpersonas garumam jābūt līdz 30 simboliem!" },
           })}
           error={errors.userName}
         />
@@ -59,8 +59,8 @@ export const Form = () => {
           className="input"
           name="contact"
           {...register("userContact", {
-            required: { value: true, message: "Norādi saziņas veidu!" },
-            maxLength: { value: 40, message: "Saziņas veida garumam jābūt <40 simboli!" },
+            required: { value: true, message: "Šis lauks ir obligāts! Norādi saziņas veidu!" },
+            maxLength: { value: 40, message: "Nekorekti dati! Saziņas veida garumam jābūt līdz 40 simboliem!" },
           })}
           error={errors.userContact}
         />
@@ -77,8 +77,8 @@ export const Form = () => {
         className="input full"
         autoComplete="off"
         {...register("message", {
-          required: { value: true, message: "Norādi ideju!" },
-          maxLength: { value: 500, message: "Idejas garumam jābūt <500 simboli!" },
+          required: { value: true, message: "Šis lauks ir obligāts! Norādi ideju!" },
+          maxLength: { value: 500, message: "Nekorekti dati! Idejas garumam jābūt līdz 500 simboliem!" },
         })}
         error={errors.message}
         name="message"
@@ -90,7 +90,7 @@ export const Form = () => {
             name="terms"
             id="agree"
             {...register("terms", {
-              required: { value: true, message: "Piekrīti noteikumiem!" },
+              required: { value: true, message: "Lūdzu atzīmē, ka piekrīti noteikumiem!" },
             })}
           />{" "}
           <label className="agree-to-rules" htmlFor="agree" >Esmu iepazinies ar noteikumiem</label>
@@ -101,7 +101,7 @@ export const Form = () => {
             <p className="success-message">Pieteikums veiksmīgi nosūtīts!</p>
           )}
           {isSubmitFailed && (
-            <p className="error-message">Kaut kas nogāja greizi. Lūdzu mēģiniet vēlreiz vēlāk vai sazinieties ar lapas pārvaldītāju.</p>
+            <p className="error-message">Neparedzēta sistēmas kļūda. Lūdzu mēģiniet vēlreiz vai kontaktējaties ar lapas pārvaldītāju.</p>
           )}
         </div>
 
