@@ -101,7 +101,7 @@ export const Form = () => {
             <p className="success-message">Pieteikums veiksmīgi nosūtīts!</p>
           )}
           {isSubmitFailed && (
-            <p className="error-message">Neparedzēta sistēmas kļūda. Lūdzu mēģiniet vēlreiz vai kontaktējaties ar lapas pārvaldītāju.</p>
+            <p className="error-message">Neparedzēta sistēmas kļūda. Lūdzu mēģiniet vēlreiz vai kontaktējaties ar lapas uzturētāju.</p>
           )}
         </div>
 

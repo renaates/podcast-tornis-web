@@ -136,7 +136,7 @@ const Admin = () => {
               );
             }
           } catch (error) {
-            alert("Neparedzēta sistēmas kļūda: ", error, ". Lūdzu mēģiniet vēlreiz vai kontaktējaties ar lapas pārvaldītāju.");
+            alert("Neparedzēta sistēmas kļūda: ", error, ". Lūdzu mēģiniet vēlreiz vai kontaktējaties ar lapas uzturētāju.");
           }
         };
 
@@ -216,7 +216,7 @@ const Admin = () => {
         youtube: "",
       });
     } catch (error) {
-      alert("Neparedzēta sistēmas kļūda: ", error, ". Lūdzu mēģiniet vēlreiz vai kontaktējaties ar lapas pārvaldītāju.");
+      alert("Neparedzēta sistēmas kļūda: ", error, ". Lūdzu mēģiniet vēlreiz vai kontaktējaties ar lapas uzturētāju.");
     }
   };
 
@@ -238,7 +238,7 @@ const Admin = () => {
       errors.text = "Nekorekti dati! Apraksta garumam jābūt līdz 1000 simboliem!";
     }
 
-    if (newNews.image && !(newNews.image.type === "image/jpeg" || newNews.image.type === "image/jpg" || newNews.image.type === "image/png")) {
+    if (newNews.image instanceof File && !["image/jpeg", "image/jpg", "image/png"].includes(newNews.image.type)) {
       errors.image = "Nekorekti dati! Attēlam jābūt .jpeg, .jpg vai .png formātā!";
     }
 
@@ -293,7 +293,7 @@ const Admin = () => {
       });
       setEditingNews(false);
     } catch (error) {
-      alert("Neparedzēta sistēmas kļūda: ", error, ". Lūdzu mēģiniet vēlreiz vai kontaktējaties ar lapas pārvaldītāju.");
+      alert("Neparedzēta sistēmas kļūda: ", error, ". Lūdzu mēģiniet vēlreiz vai kontaktējaties ar lapas uzturētāju.");
     }
   };
 
@@ -311,7 +311,7 @@ const Admin = () => {
 
     if (!newTeam.image) {
       errors.image = "Šis lauks ir obligāts!";
-    } else if (newTeam.image && !(newTeam.image.type === "image/jpeg" || newTeam.image.type === "image/jpg" || newTeam.image.type === "image/png")) {
+    } else if (newTeam.image instanceof File && !["image/jpeg", "image/jpg", "image/png"].includes(newTeam.image.type)) {
       errors.image = "Nekorekti dati! Attēlam jābūt .jpeg, .jpg vai .png formātā!";
     }
 
@@ -381,7 +381,7 @@ const Admin = () => {
       });
       setEditingTeam(false);
     } catch (error) {
-      alert("Neparedzēta sistēmas kļūda: ", error, ". Lūdzu mēģiniet vēlreiz vai kontaktējaties ar lapas pārvaldītāju.");
+      alert("Neparedzēta sistēmas kļūda: ", error, ". Lūdzu mēģiniet vēlreiz vai kontaktējaties ar lapas uzturētāju.");
     }
   };
 
@@ -440,7 +440,7 @@ const Admin = () => {
         alert("Vienums dzēsts!");
         window.location.reload();
       } catch (error) {
-        alert("Neparedzēta sistēmas kļūda: ", error, ". Lūdzu mēģiniet vēlreiz vai kontaktējaties ar lapas pārvaldītāju.");
+        alert("Neparedzēta sistēmas kļūda: ", error, ". Lūdzu mēģiniet vēlreiz vai kontaktējaties ar lapas uzturētāju.");
       }
     }
   };
@@ -450,7 +450,7 @@ const Admin = () => {
       await firebase.auth().signOut();
       navigate("/login");
     } catch (error) {
-      alert("Neparedzēta sistēmas kļūda: ", error, ". Lūdzu mēģiniet vēlreiz vai kontaktējaties ar lapas pārvaldītāju.");
+      alert("Neparedzēta sistēmas kļūda: ", error, ". Lūdzu mēģiniet vēlreiz vai kontaktējaties ar lapas uzturētāju.");
     }
   };
 
@@ -460,7 +460,7 @@ const Admin = () => {
 
   return (
     <div className="admin-container">
-      <button onClick={handleLogout}>Izrakstīties</button>
+      <button onClick={handleLogout}>Atteikties</button>
       <h1>Podkāsts Tornis</h1>
       <div className="forms-container">
         <div className="form-container">
@@ -538,7 +538,7 @@ const Admin = () => {
         <div className="form-container">
           <form onSubmit={handleAddTeam} className="admin-form">
             <div>
-              <h3>{editingTeam ? "Rediģēt komandu" : "Pievienot komandu"}</h3>
+              <h3>{editingTeam ? "Rediģēt komandas biedru" : "Pievienot komandas biedru"}</h3>
               {editingTeam && (
                 <>
                   <button type="button" onClick={handleExitEditing}>

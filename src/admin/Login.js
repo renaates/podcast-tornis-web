@@ -12,6 +12,10 @@ const Login = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    if (!email.trim() || !password.trim()) {
+      setError("Aizpildi visus laukus!");
+      return;
+    }
     try {
       await firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL);
       await firebase.auth().signInWithEmailAndPassword(email, password);
@@ -25,7 +29,7 @@ const Login = () => {
     <div className="login-container">
       <div className="login-box">
         <h2 className="login-title">Podkāsts Tornis</h2>
-        <form onSubmit={handleLogin} className="login-form">
+        <form className="login-form">
           <div className="input-group">
             <label htmlFor="email">E-pasts</label>
             <input name="email" id="email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} required placeholder="E-pasta adrese" />
@@ -35,8 +39,8 @@ const Login = () => {
             <input name="password" id="password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} required placeholder="Jūsu parole" />
           </div>
           {error && <p className="error-message">{error}</p>}
-          <button type="submit" className="submit-btn">
-            Ierakstīties
+          <button type="submit" className="submit-btn" onClick={handleLogin}>
+            Pieteikties
           </button>
         </form>
       </div>
