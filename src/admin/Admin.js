@@ -78,7 +78,7 @@ const Admin = () => {
           try {
             const episodesList = await db
               .collection("episodes")
-              .orderBy("added", "desc") // Sort by 'added' field
+              .orderBy("date", "desc") // Sort by 'date' field
               .get();
 
             if (isMounted) {
@@ -136,7 +136,7 @@ const Admin = () => {
               );
             }
           } catch (error) {
-            alert("Neparedzēta sistēmas kļūda: ", error, ". Lūdzu mēģiniet vēlreiz vai kontaktējaties ar lapas uzturētāju.");
+            alert("Neparedzēta sistēmas kļūda. Lūdzu mēģiniet vēlreiz vai kontaktējaties ar lapas uzturētāju.");
           }
         };
 
@@ -189,7 +189,10 @@ const Admin = () => {
           .collection("episodes")
           .doc(newEpisode.id)
           .update({
-            ...newEpisode,
+            title: newEpisode.title,
+            description: newEpisode.description,
+            spotify: newEpisode.spotify,
+            youtube: newEpisode.youtube,
             image: imageUrl || newEpisode.image,
           });
         alert("Vienums saglabāts!");
@@ -197,17 +200,20 @@ const Admin = () => {
       } else {
         // Add episode
         await db.collection("episodes").add({
-          ...newEpisode,
+          title: newEpisode.title,
+          description: newEpisode.description,
+          spotify: newEpisode.spotify,
+          youtube: newEpisode.youtube,
           image: imageUrl,
           number: parseInt(newEpisode.number),
-          added: firebase.firestore.FieldValue.serverTimestamp(),
+          date: firebase.firestore.FieldValue.serverTimestamp(),
         });
         alert("Vienums pievienots!");
       }
 
       window.location.reload();
       setNewEpisode({
-        id: "",
+
         title: "",
         description: "",
         image: "",
@@ -216,7 +222,7 @@ const Admin = () => {
         youtube: "",
       });
     } catch (error) {
-      alert("Neparedzēta sistēmas kļūda: ", error, ". Lūdzu mēģiniet vēlreiz vai kontaktējaties ar lapas uzturētāju.");
+      alert("Neparedzēta sistēmas kļūda. Lūdzu mēģiniet vēlreiz vai kontaktējaties ar lapas uzturētāju.");
     }
   };
 
@@ -238,7 +244,9 @@ const Admin = () => {
       errors.text = "Nekorekti dati! Apraksta garumam jābūt līdz 1000 simboliem!";
     }
 
-    if (newNews.image instanceof File && !["image/jpeg", "image/jpg", "image/png"].includes(newNews.image.type)) {
+    if (!newNews.image) {
+      errors.image = "Šis lauks ir obligāts!";
+    } else if (newNews.image instanceof File && !["image/jpeg", "image/jpg", "image/png"].includes(newNews.image.type)) {
       errors.image = "Nekorekti dati! Attēlam jābūt .jpeg, .jpg vai .png formātā!";
     }
 
@@ -270,15 +278,11 @@ const Admin = () => {
         alert("Vienums saglabāts!");
       } else {
         // Add news
-        const docRef = await db.collection("news").add({
+        await db.collection("news").add({
           title: newNews.title,
           text: newNews.text,
           image: imageUrl,
           date: firebase.firestore.FieldValue.serverTimestamp(),
-        });
-
-        await db.collection("news").doc(docRef.id).update({
-          id: docRef.id,
         });
 
         alert("Vienums pievienots!");
@@ -286,14 +290,14 @@ const Admin = () => {
 
       window.location.reload();
       setNewNews({
-        id: "",
+
         title: "",
         text: "",
         image: "",
       });
       setEditingNews(false);
     } catch (error) {
-      alert("Neparedzēta sistēmas kļūda: ", error, ". Lūdzu mēģiniet vēlreiz vai kontaktējaties ar lapas uzturētāju.");
+      alert("Neparedzēta sistēmas kļūda. Lūdzu mēģiniet vēlreiz vai kontaktējaties ar lapas uzturētāju.");
     }
   };
 
@@ -355,7 +359,7 @@ const Admin = () => {
         alert("Vienums saglabāts!");
       } else {
         // Add team member
-        const docRef = await db.collection("team").add({
+        await db.collection("team").add({
           name: newTeam.name,
           role: newTeam.role,
           image: imageUrl,
@@ -363,16 +367,12 @@ const Admin = () => {
           number: newTeam.number,
         });
 
-        await db.collection("team").doc(docRef.id).update({
-          id: docRef.id,
-        });
-
         alert("Vienums pievienots!");
       }
 
       window.location.reload();
       setNewTeam({
-        id: "",
+
         name: "",
         role: "",
         image: "",
@@ -381,7 +381,7 @@ const Admin = () => {
       });
       setEditingTeam(false);
     } catch (error) {
-      alert("Neparedzēta sistēmas kļūda: ", error, ". Lūdzu mēģiniet vēlreiz vai kontaktējaties ar lapas uzturētāju.");
+      alert("Neparedzēta sistēmas kļūda. Lūdzu mēģiniet vēlreiz vai kontaktējaties ar lapas uzturētāju.");
     }
   };
 
@@ -406,7 +406,6 @@ const Admin = () => {
     setEditingTeam(false);
 
     setNewEpisode(() => ({
-      id: "",
       title: "",
       description: "",
       image: "",
@@ -416,14 +415,12 @@ const Admin = () => {
     }));
 
     setNewNews({
-      id: "",
       title: "",
       text: "",
       image: "",
     });
 
     setNewTeam({
-      id: "",
       name: "",
       role: "",
       image: "",
@@ -440,7 +437,7 @@ const Admin = () => {
         alert("Vienums dzēsts!");
         window.location.reload();
       } catch (error) {
-        alert("Neparedzēta sistēmas kļūda: ", error, ". Lūdzu mēģiniet vēlreiz vai kontaktējaties ar lapas uzturētāju.");
+        console.log("Neparedzēta sistēmas kļūda. Lūdzu mēģiniet vēlreiz vai kontaktējaties ar lapas uzturētāju.");
       }
     }
   };
@@ -450,7 +447,7 @@ const Admin = () => {
       await firebase.auth().signOut();
       navigate("/login");
     } catch (error) {
-      alert("Neparedzēta sistēmas kļūda: ", error, ". Lūdzu mēģiniet vēlreiz vai kontaktējaties ar lapas uzturētāju.");
+      alert("Neparedzēta sistēmas kļūda. Lūdzu mēģiniet vēlreiz vai kontaktējaties ar lapas uzturētāju.");
     }
   };
 
